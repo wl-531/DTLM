@@ -145,6 +145,16 @@ def summary(results, functions_info, M, policy=None, memory_unconstrained=False,
     total_colds = sum(1 for _, _, cold, _, _ in filtered if cold)
     breakdown = cold_start_breakdown(policy, functions_info, skip_warmup=skip_warmup)
     util_stats = utilization_stats(results, M, policy=policy, skip_warmup=skip_warmup)
+    per_function_stats = {}
+    if policy is not None:
+        per_function_stats = {
+            func_id: {
+                "cold_start_cost": float(stats["cold_start_cost"]),
+                "cold_start_count": int(stats["cold_start_count"]),
+                "request_count": int(stats["request_count"]),
+            }
+            for func_id, stats in policy.per_function_stats.items()
+        }
 
     return {
         "cold_start_rate": cold_start_rate(results, skip_warmup),
@@ -156,4 +166,5 @@ def summary(results, functions_info, M, policy=None, memory_unconstrained=False,
         "memory_unconstrained": memory_unconstrained,
         "cold_start_breakdown": breakdown,
         "utilization_stats": util_stats,
+        "per_function_stats": per_function_stats,
     }

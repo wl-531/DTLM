@@ -4,6 +4,14 @@ class CachePolicy:
         self.functions_info = functions_info
         self.ever_seen = {func_id: False for func_id in functions_info}
         self.last_removal_reason = {func_id: None for func_id in functions_info}
+        self.per_function_stats = {
+            func_id: {
+                "cold_start_cost": 0.0,
+                "cold_start_count": 0,
+                "request_count": 0,
+            }
+            for func_id in functions_info
+        }
         self.deletion_log = []
         self.utilization_samples = []
         self.cold_start_log = []
@@ -25,6 +33,15 @@ class CachePolicy:
 
     def mark_cache_inserted(self, func_id):
         self.ever_seen[func_id] = True
+
+    def get_per_function_stats(self, func_id):
+        if func_id not in self.per_function_stats:
+            self.per_function_stats[func_id] = {
+                "cold_start_cost": 0.0,
+                "cold_start_count": 0,
+                "request_count": 0,
+            }
+        return self.per_function_stats[func_id]
 
     def record_utilization_sample(self, now_ts):
         memory_utilization = self.memory_used() / self.M if self.M > 0 else 0.0

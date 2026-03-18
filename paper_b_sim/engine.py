@@ -11,6 +11,7 @@ def simulate(policy, request_stream, warmup_end_ms=None):
             policy.record_utilization_sample(next_ttl_check_time)
             next_ttl_check_time += 60000
 
+        is_warmup = warmup_end_ms is not None and ts < warmup_end_ms
         is_cold = policy.on_request(ts, func_id)
         if is_cold:
             if not policy.ever_seen.get(func_id, False):
@@ -33,8 +34,14 @@ def simulate(policy, request_stream, warmup_end_ms=None):
         else:
             policy.current_cold_start_cause = None
 
+        if not is_warmup:
+            func_stats = policy.get_per_function_stats(func_id)
+            func_stats["request_count"] += 1
+            if is_cold:
+                func_stats["cold_start_count"] += 1
+                func_stats["cold_start_cost"] += policy.functions_info.get(func_id, {}).get("c_i", 0.0)
+
         mem_used = policy.memory_used()
-        is_warmup = warmup_end_ms is not None and ts < warmup_end_ms
         results.append((ts, func_id, is_cold, mem_used, is_warmup))
 
         if (i + 1) % 100000 == 0:

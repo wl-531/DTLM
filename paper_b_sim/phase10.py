@@ -10,12 +10,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from runner import prepare_data, run_single
+from runner import prepare_data, run_single, run_divergence_pair
 
 RESULTS_DIR = Path(r"D:\code\paper_b_sim\results")
 BASELINE_DIR = RESULTS_DIR / "baseline"
 SENSITIVITY_DIR = RESULTS_DIR / "sensitivity"
 DTLM_TUNING_DIR = RESULTS_DIR / "dtlm_tuning"
+DIVERGENCE_DIR = RESULTS_DIR / "divergence"
 
 POLICIES = [
     "lru",
@@ -25,6 +26,7 @@ POLICIES = [
     "iat_adaptive_ttl",
     "adaptive_ttl_lru",
     "ttlmin_extnd",
+    "c2rd_sr",
     "dtlm",
 ]
 DISPLAY_NAMES = {
@@ -35,6 +37,7 @@ DISPLAY_NAMES = {
     "iat_adaptive_ttl": "IAT-Adaptive TTL",
     "adaptive_ttl_lru": "Adaptive-TTL+LRU",
     "ttlmin_extnd": "TTLmin_extnd",
+    "c2rd_sr": "C2RD-SR",
     "dtlm": "DTLM",
 }
 BASELINE_M_RATIOS = [0.1, 0.2, 0.3, 0.5, 0.7, 1.0]
@@ -507,9 +510,67 @@ def run_step4():
     return report
 
 
+def divergence_path(m_ratio, snapshot_interval_sec):
+    return DIVERGENCE_DIR / f"dtlm_vs_gdsf_{format_float(m_ratio)}_{int(snapshot_interval_sec)}s.json"
+
+
+def make_divergence_json_ready(payload):
+    snapshots = []
+    for row in payload["snapshots"]:
+        snapshot = dict(row)
+        snapshot["dtlm_warm_set"] = sorted(snapshot["dtlm_warm_set"])
+        snapshot["gdsf_warm_set"] = sorted(snapshot["gdsf_warm_set"])
+        snapshot["dtlm_only"] = sorted(snapshot["dtlm_only"])
+        snapshot["gdsf_only"] = sorted(snapshot["gdsf_only"])
+        snapshots.append(snapshot)
+    return {
+        "snapshots": snapshots,
+        "summary": payload["summary"],
+    }
+
+
+def run_step5(m_ratio=0.3, snapshot_interval_sec=60):
+    start = time.time()
+    DIVERGENCE_DIR.mkdir(parents=True, exist_ok=True)
+    data = prepare_data(seed=SEED, days=DAYS, working_set_days=WORKING_SET_DAYS)
+    result = run_divergence_pair(
+        data,
+        dtlm_config={
+            "M_ratio": m_ratio,
+            "warmup_days": WARMUP_DAYS,
+        },
+        gdsf_config={
+            "M_ratio": m_ratio,
+            "warmup_days": WARMUP_DAYS,
+        },
+        snapshot_interval_sec=snapshot_interval_sec,
+    )
+
+    output_path = divergence_path(m_ratio, snapshot_interval_sec)
+    with output_path.open("w", encoding="utf-8") as handle:
+        json.dump(make_divergence_json_ready(result), handle, indent=2)
+    print(f"SAVED: {output_path}")
+
+    summary = result["summary"]
+    report = "\n".join([
+        "=== Step 5 完成 ===",
+        f"M_ratio={format_float(m_ratio)}, snapshot_interval={int(snapshot_interval_sec)}s",
+        f"snapshot_count={len(result['snapshots'])}",
+        f"mean_jaccard={summary['mean_jaccard']:.4f}",
+        f"divergent_snapshot_ratio={summary['divergent_snapshot_ratio']:.4f}",
+        f"mean_interval_delta_cost={summary['mean_interval_delta_cost']:.2f}",
+        f"total_delta_cost={summary['total_delta_cost']:.2f}",
+        f"总运行时间：{time.time() - start:.1f}s",
+    ])
+    print(report)
+    return report
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--step", choices=["1", "2", "3", "4", "all"], default="all")
+    parser.add_argument("--step", choices=["1", "2", "3", "4", "5", "all"], default="all")
+    parser.add_argument("--divergence-m-ratio", type=float, default=0.3)
+    parser.add_argument("--snapshot-interval-sec", type=int, default=60)
     args = parser.parse_args()
 
     if args.step in {"1", "all"}:
@@ -520,6 +581,11 @@ def main():
         run_step3()
     if args.step in {"4", "all"}:
         run_step4()
+    if args.step == "5":
+        run_step5(
+            m_ratio=args.divergence_m_ratio,
+            snapshot_interval_sec=args.snapshot_interval_sec,
+        )
 
 
 if __name__ == "__main__":

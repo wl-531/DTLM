@@ -2,6 +2,7 @@ import unittest
 
 from engine import simulate
 from policies.base import CachePolicy
+from policies.c2rd import C2RD_SR
 from policies.dtlm import DTLM
 from policies.fixed_ttl_lru import FixedTTL_LRU
 from policies.ttlmin_extnd import TTLminExtnd
@@ -162,6 +163,114 @@ class RegressionTests(unittest.TestCase):
         self.assertIn("c", policy.warm_pool)
         self.assertEqual(policy.ttl_reclaim_count, 1)
         self.assertEqual(policy.ttl_layer_active_scans, 1)
+
+
+    # ---- C2RD-SR tests ----
+
+    def test_c2rd_sr_different_ci_mi_give_different_retention(self):
+        """Functions with different c_i/m_i should get different T_i."""
+        functions_info = {
+            "small_expensive": {"m_i": 50, "c_i": 500},   # c/m = 10
+            "large_cheap": {"m_i": 500, "c_i": 200},      # c/m = 0.4
+            "medium": {"m_i": 200, "c_i": 350},            # c/m = 1.75
+        }
+        policy = C2RD_SR(M=1000, functions_info=functions_info, alpha_beta=0.175)
+
+        T_small = policy._retention_time_ms("small_expensive")
+        T_large = policy._retention_time_ms("large_cheap")
+        T_medium = policy._retention_time_ms("medium")
+
+        self.assertNotEqual(T_small, T_large)
+        self.assertNotEqual(T_small, T_medium)
+
+    def test_c2rd_sr_high_ci_mi_retained_longer(self):
+        """High c_i/m_i (expensive cold-start, small container) → longer retention."""
+        functions_info = {
+            "valuable": {"m_i": 50, "c_i": 500},    # c/m = 10
+            "cheap": {"m_i": 500, "c_i": 200},       # c/m = 0.4
+        }
+        policy = C2RD_SR(M=1000, functions_info=functions_info, alpha_beta=0.175)
+
+        self.assertGreater(
+            policy._retention_time_ms("valuable"),
+            policy._retention_time_ms("cheap"),
+        )
+
+    def test_c2rd_sr_eviction_picks_min_remaining_retention(self):
+        """Eviction fallback should pick the container closest to natural expiry."""
+        functions_info = {
+            "a": {"m_i": 100, "c_i": 350},
+            "b": {"m_i": 100, "c_i": 350},
+            "new": {"m_i": 100, "c_i": 350},
+        }
+        policy = C2RD_SR(M=200, functions_info=functions_info, alpha_beta=0.175)
+
+        # a loaded at t=0, b loaded at t=100000 → a has less remaining retention
+        policy.on_request(0, "a")
+        policy.on_request(100000, "b")
+
+        # new arrives, must evict one. a has been idle longer → less remaining → evicted
+        policy.on_request(200000, "new")
+
+        self.assertNotIn("a", policy.warm)
+        self.assertIn("b", policy.warm)
+        self.assertIn("new", policy.warm)
+
+    def test_c2rd_sr_eviction_tiebreak_by_value_density(self):
+        """Same remaining retention → evict lower c_i/m_i first."""
+        functions_info = {
+            "valuable": {"m_i": 100, "c_i": 800},   # c/m = 8
+            "cheap": {"m_i": 100, "c_i": 100},       # c/m = 1
+            "new": {"m_i": 100, "c_i": 350},
+        }
+        policy = C2RD_SR(M=200, functions_info=functions_info, alpha_beta=0.175)
+
+        # Both loaded at same time → same remaining retention
+        policy.on_request(0, "valuable")
+        policy.on_request(0, "cheap")
+
+        policy.on_request(1, "new")
+
+        # cheap has lower c_i/m_i → evicted first
+        self.assertNotIn("cheap", policy.warm)
+        self.assertIn("valuable", policy.warm)
+        self.assertIn("new", policy.warm)
+
+    def test_c2rd_sr_expiry_vs_eviction_reason(self):
+        """TTL expiry → reason='expiry'; capacity eviction → reason='eviction'."""
+        functions_info = {
+            "a": {"m_i": 100, "c_i": 350},
+            "b": {"m_i": 100, "c_i": 350},
+        }
+        # alpha_beta=10 → very short retention (~0.2 min) for quick expiry in test
+        policy = C2RD_SR(M=200, functions_info=functions_info,
+                         alpha_beta=10.0, t_min_ms=1000)
+
+        # Load a at t=0
+        policy.on_request(0, "a")
+
+        # TTL scan well past retention time → should expire a
+        policy.check_ttl(120000)
+        self.assertNotIn("a", policy.warm)
+
+        # Check reason
+        expiry_deletions = [d for d in policy.deletion_log if d["reason"] == "expiry"]
+        self.assertEqual(len(expiry_deletions), 1)
+        self.assertEqual(expiry_deletions[0]["func_id"], "a")
+
+        # Now test eviction: fill memory, then force eviction
+        policy.on_request(200000, "a")
+        policy.on_request(200001, "b")
+        # Already at capacity. Simulate engine not calling check_ttl yet.
+        # Manually request a again after evicting via on_request won't trigger eviction
+        # since a is already warm. Instead, add a third function:
+        functions_info["c"] = {"m_i": 100, "c_i": 350}
+        policy.functions_info = functions_info
+        policy._retention_ms["c"] = policy._retention_ms["a"]
+        policy.on_request(200002, "c")
+
+        eviction_deletions = [d for d in policy.deletion_log if d["reason"] == "eviction"]
+        self.assertGreaterEqual(len(eviction_deletions), 1)
 
 
 if __name__ == "__main__":

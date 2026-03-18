@@ -28,6 +28,11 @@ class ExplainabilityMetricsTests(unittest.TestCase):
         self.assertEqual(breakdown["expiry_induced_cold_starts"], 0)
         self.assertEqual(breakdown["expiry_induced_cold_cost"], 0.0)
         self.assertGreater(breakdown["eviction_induced_cold_starts"], 0)
+        self.assertIn("per_function_stats", metrics)
+        self.assertEqual(metrics["per_function_stats"]["a"]["request_count"], 2)
+        self.assertEqual(metrics["per_function_stats"]["a"]["cold_start_count"], 2)
+        self.assertEqual(metrics["per_function_stats"]["b"]["request_count"], 1)
+        self.assertEqual(metrics["per_function_stats"]["c"]["request_count"], 1)
 
     def test_dtlm_collects_both_deletion_reasons_and_utilization_samples(self):
         functions_info = {

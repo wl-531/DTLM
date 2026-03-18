@@ -4,6 +4,38 @@ import pandas as pd
 from config import TRACE_DIR, SEED, N_APPS, SMALL_MEM_THRESHOLD, LARGE_MEM_THRESHOLD, N_SMALL, N_LARGE
 
 
+def classify_hotness(func_id, global_request_counts) -> str:
+    """Classify function hotness from workload-level request-count quantiles."""
+    if not global_request_counts:
+        return "cold"
+
+    counts = np.array(list(global_request_counts.values()), dtype=float)
+    p50 = float(np.quantile(counts, 0.50))
+    p90 = float(np.quantile(counts, 0.90))
+    request_count = float(global_request_counts.get(func_id, 0))
+    if request_count >= p90:
+        return "hot"
+    if request_count >= p50:
+        return "warm"
+    return "cold"
+
+
+def compute_global_request_counts(request_stream):
+    """Count workload-level requests per function once for all strategies."""
+    counts = {}
+    for _, func_id, _, _ in request_stream:
+        counts[func_id] = counts.get(func_id, 0) + 1
+    return counts
+
+
+def build_hotness_labels(global_request_counts):
+    """Materialize hot/warm/cold labels shared by all strategies."""
+    return {
+        func_id: classify_hotness(func_id, global_request_counts)
+        for func_id in global_request_counts
+    }
+
+
 def load_memory(days=range(1, 13)):
     """加载 app 级别内存数据，返回 per-app 平均内存 (MB)"""
     frames = []
