@@ -1,7 +1,0 @@
-{
-  "p_deactivate": 0.95,
-  "tau_cold_ms": 120000,
-  "tau_warm_ms": 360000,
-  "tau_hot_ms": 1200000,
-  "selection_reason": "\u5e73\u5747 rank \u6700\u4f18"
-}

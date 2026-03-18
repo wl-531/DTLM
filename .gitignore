@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+*.zip
+paper_b_sim/results/
