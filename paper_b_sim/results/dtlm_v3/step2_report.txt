@@ -1,0 +1,38 @@
+=== Step 2 完成 ===
+M_ratio=0.2:
+  CSR: 10.31%
+  Total Cost: 6005080
+  TTL reclaim count: 2
+  Eviction count: 57514
+  TTL active scans: 3
+  TTL skipped scans: 4316
+  Pressure (mean over run): 0.9646
+  Warm pool 函数分类 (最后时刻): hot=5 warm=7 cold=0
+
+M_ratio=0.3:
+  CSR: 2.90%
+  Total Cost: 1487540
+  TTL reclaim count: 68
+  Eviction count: 16726
+  TTL active scans: 276
+  TTL skipped scans: 4043
+  Pressure (mean over run): 0.9577
+  Warm pool 函数分类 (最后时刻): hot=13 warm=5 cold=0
+
+M_ratio=0.5:
+  CSR: 0.89%
+  Total Cost: 519000
+  TTL reclaim count: 985
+  Eviction count: 4798
+  TTL active scans: 1042
+  TTL skipped scans: 3277
+  Pressure (mean over run): 0.9218
+  Warm pool 函数分类 (最后时刻): hot=22 warm=0 cold=0
+
+M_ratio=0.2: CSR=10.31%, Cost=6005080, TTL reclaims=2, Evictions=57514
+M_ratio=0.3: CSR=2.90%, Cost=1487540, TTL reclaims=68, Evictions=16726
+M_ratio=0.5: CSR=0.89%, Cost=519000, TTL reclaims=985, Evictions=4798
+
+M_ratio=0.2 的 CSR 与 GDSF 的差距：-0.02% （目标 < 5%）
+预期行为检查：全部通过
+总运行时间：32.8s

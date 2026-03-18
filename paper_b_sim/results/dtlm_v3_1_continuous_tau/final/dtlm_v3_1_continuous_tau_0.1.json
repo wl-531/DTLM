@@ -1,0 +1,57 @@
+{
+  "policy": "dtlm_v3_1_continuous_tau",
+  "source_policy": "dtlm",
+  "M_ratio": 0.1,
+  "M_MB": 977.9,
+  "seed": 42,
+  "days": [
+    3,
+    12
+  ],
+  "working_set_days": [
+    5,
+    12
+  ],
+  "warmup_days": 2,
+  "working_set_mean_MB": 9778.8,
+  "policy_kwargs": {
+    "p_deactivate": 0.95,
+    "hot_threshold": 10,
+    "warm_threshold": 1,
+    "tau_hot_ms": 1200000,
+    "tau_warm_ms": 360000,
+    "tau_cold_ms": 120000,
+    "t_protect_ms": 60000,
+    "ttl_scan_interval_ms": 60000,
+    "physical_delete_requires_pressure": true,
+    "dtlm_mode": "v3_1_continuous_tau",
+    "tau_quantile_p": 0.8,
+    "tau_cost_alpha": 0.5
+  },
+  "metrics": {
+    "cold_start_rate": 0.12951118721269553,
+    "total_cold_start_cost": 57741250.0,
+    "avg_memory_utilization": 0.9157170488784417,
+    "peak_memory_mb": 977.8333333331996,
+    "total_requests": 1429668,
+    "total_cold_starts": 185158,
+    "memory_unconstrained": false
+  },
+  "diagnostics": {
+    "warm_count": 5,
+    "memory_used": 906.1060606059089,
+    "memory_budget": 977.8760915829926,
+    "pressure": 0.9266062115692982,
+    "clock": 1292579.0444657835,
+    "ttl_reclaim_count": 9334,
+    "eviction_count": 219996,
+    "ttl_active_scans": 5367,
+    "ttl_skipped_scans": 11912,
+    "logically_expired_count": 0,
+    "dtlm_mode": "v3_1_continuous_tau",
+    "tau_quantile_p": 0.8,
+    "tau_cost_alpha": 0.5,
+    "tau_min_ms": 161.5,
+    "tau_max_ms": 60000.0
+  }
+}

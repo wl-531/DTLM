@@ -1,0 +1,68 @@
+M_ratio=0.1
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. LFU: cost=57449000, CSR=12.75%
+  3. GDSF: cost=57691770, CSR=12.94%
+  4. DTLM v3: cost=57691770, CSR=12.94%
+  5. TTLmin_extnd: cost=58484110, CSR=12.90%
+  6. LRU: cost=67476380, CSR=15.05%
+  7. Fixed-TTL+LRU: cost=67476380, CSR=15.05%
+  8. Adaptive-TTL+LRU: cost=67476720, CSR=15.05%
+
+M_ratio=0.2
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. TTLmin_extnd: cost=32172390, CSR=7.32%
+  3. DTLM v3: cost=49082700, CSR=10.88%
+  4. LFU: cost=51050960, CSR=11.27%
+  5. GDSF: cost=51196200, CSR=11.30%
+  6. Adaptive-TTL+LRU: cost=61329740, CSR=13.72%
+  7. LRU: cost=62533190, CSR=13.98%
+  8. Fixed-TTL+LRU: cost=62533190, CSR=13.98%
+
+M_ratio=0.3
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. DTLM v3: cost=12590140, CSR=3.13%
+  3. TTLmin_extnd: cost=14314130, CSR=3.33%
+  4. GDSF: cost=16284490, CSR=4.02%
+  5. LFU: cost=18573320, CSR=4.16%
+  6. Adaptive-TTL+LRU: cost=30931750, CSR=7.02%
+  7. LRU: cost=31002450, CSR=7.03%
+  8. Fixed-TTL+LRU: cost=31002450, CSR=7.03%
+
+M_ratio=0.5
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. DTLM v3: cost=4167280, CSR=0.87%
+  3. TTLmin_extnd: cost=6477440, CSR=1.38%
+  4. GDSF: cost=7666250, CSR=1.73%
+  5. LRU: cost=8468710, CSR=1.95%
+  6. Fixed-TTL+LRU: cost=8541800, CSR=1.97%
+  7. LFU: cost=9024280, CSR=2.03%
+  8. Adaptive-TTL+LRU: cost=10424980, CSR=2.37%
+
+M_ratio=0.7
+  1. DTLM v3: cost=2348780, CSR=0.46%
+  2. LRU: cost=2359160, CSR=0.48%
+  3. Fixed-TTL+LRU: cost=2816930, CSR=0.57%
+  4. GDSF: cost=2907560, CSR=0.54%
+  5. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  6. LFU: cost=3981670, CSR=0.76%
+  7. TTLmin_extnd: cost=4634900, CSR=0.99%
+  8. Adaptive-TTL+LRU: cost=5070940, CSR=1.07%
+
+M_ratio=1.0
+  1. LRU: cost=881700, CSR=0.19%
+  2. GDSF: cost=1249850, CSR=0.23%
+  3. DTLM v3: cost=2271460, CSR=0.45%
+  4. LFU: cost=2337010, CSR=0.48%
+  5. Fixed-TTL+LRU: cost=2359540, CSR=0.47%
+  6. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  7. TTLmin_extnd: cost=3839500, CSR=0.85%
+  8. Adaptive-TTL+LRU: cost=3844180, CSR=0.84%
+
+DTLM v3 排名汇总
+- M_ratio=0.1: rank 4
+- M_ratio=0.2: rank 3
+- M_ratio=0.3: rank 2
+- M_ratio=0.5: rank 2
+- M_ratio=0.7: rank 1
+- M_ratio=1.0: rank 3
+- 平均 rank: 2.50

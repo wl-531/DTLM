@@ -1,0 +1,27 @@
+{
+  "policy": "gdsf",
+  "M_ratio": 1.0,
+  "M_MB": 9778.8,
+  "cold_start_scale": 1.0,
+  "seed": 42,
+  "days": [
+    3,
+    12
+  ],
+  "working_set_days": [
+    5,
+    12
+  ],
+  "warmup_days": 2,
+  "working_set_mean_MB": 9778.8,
+  "metrics": {
+    "cold_start_rate": 0.00232851263370237,
+    "total_cold_start_cost": 1249850.0,
+    "avg_memory_utilization": 0.9689003434749774,
+    "peak_memory_mb": 9778.564141414146,
+    "total_requests": 1429668,
+    "total_cold_starts": 3329,
+    "memory_unconstrained": false,
+    "runtime_seconds": 1.0
+  }
+}

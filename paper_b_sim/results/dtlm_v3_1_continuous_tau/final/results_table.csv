@@ -1,0 +1,49 @@
+policy,display_name,M_ratio,csr,total_cost,avg_mem_util,result_path
+adaptive_ttl_only,Adaptive-TTL-only,0.1,0.00762624609349863,3440360.0,15.677694606494736,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_0.1.json
+lfu,LFU,0.1,0.12750023082282042,57449000.0,0.9259747890939662,D:\code\paper_b_sim\results\baseline\lfu_0.1.json
+gdsf,GDSF,0.1,0.129395775802494,57691770.0,0.9156386401898879,D:\code\paper_b_sim\results\baseline\gdsf_0.1.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,0.1,0.12951118721269553,57741250.0,0.9157170488784417,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_0.1.json
+ttlmin_extnd,TTLmin_extnd,0.1,0.12903415338386254,58484110.0,0.9267462619232202,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_0.1.json
+lru,LRU,0.1,0.15046710145292475,67476380.0,0.9122732559680847,D:\code\paper_b_sim\results\baseline\lru_0.1.json
+fixed_ttl_lru,Fixed-TTL+LRU,0.1,0.15046710145292475,67476380.0,0.9122732559680847,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.1.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,0.1,0.15046710145292475,67476720.0,0.9117878900221098,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.1.json
+adaptive_ttl_only,Adaptive-TTL-only,0.2,0.00762624609349863,3440360.0,7.838847303247368,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_0.2.json
+ttlmin_extnd,TTLmin_extnd,0.2,0.07319671420217841,32172390.0,0.9573161743425891,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_0.2.json
+lfu,LFU,0.2,0.11268350414222043,51050960.0,0.9551179883126618,D:\code\paper_b_sim\results\baseline\lfu_0.2.json
+gdsf,GDSF,0.2,0.11300385823841619,51196200.0,0.9566820674564841,D:\code\paper_b_sim\results\baseline\gdsf_0.2.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,0.2,0.11732024497995339,52154340.0,0.9466978070947032,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_0.2.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,0.2,0.13718499679645904,61329740.0,0.9632349292900511,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.2.json
+lru,LRU,0.2,0.13984435547273913,62533190.0,0.9637630519919659,D:\code\paper_b_sim\results\baseline\lru_0.2.json
+fixed_ttl_lru,Fixed-TTL+LRU,0.2,0.13984435547273913,62533190.0,0.9637630519919659,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.2.json
+adaptive_ttl_only,Adaptive-TTL-only,0.3,0.00762624609349863,3440360.0,5.225898202164912,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_0.3.json
+ttlmin_extnd,TTLmin_extnd,0.3,0.033257371641527964,14314130.0,0.9498697816641201,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_0.3.json
+gdsf,GDSF,0.3,0.040215630482041985,16284490.0,0.9735557641032508,D:\code\paper_b_sim\results\baseline\gdsf_0.3.json
+lfu,LFU,0.3,0.041642535189988165,18573320.0,0.9731718250311733,D:\code\paper_b_sim\results\baseline\lfu_0.3.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,0.3,0.07024288156411139,30931750.0,0.9555294837805217,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.3.json
+lru,LRU,0.3,0.07033381176608836,31002450.0,0.9585088217804758,D:\code\paper_b_sim\results\baseline\lru_0.3.json
+fixed_ttl_lru,Fixed-TTL+LRU,0.3,0.07033381176608836,31002450.0,0.9585088217804758,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.3.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,0.3,0.07447183541913227,32548490.0,0.8971320987085752,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_0.3.json
+adaptive_ttl_only,Adaptive-TTL-only,0.5,0.00762624609349863,3440360.0,3.1355389212989473,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_0.5.json
+ttlmin_extnd,TTLmin_extnd,0.5,0.01375284331746951,6477440.0,0.9126661202526382,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_0.5.json
+gdsf,GDSF,0.5,0.0172865308589127,7666250.0,0.9749960229533936,D:\code\paper_b_sim\results\baseline\gdsf_0.5.json
+lru,LRU,0.5,0.01951362134425615,8468710.0,0.9496723517260659,D:\code\paper_b_sim\results\baseline\lru_0.5.json
+fixed_ttl_lru,Fixed-TTL+LRU,0.5,0.019696880674394335,8541800.0,0.9487365075748766,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.5.json
+lfu,LFU,0.5,0.02029981785981081,9024280.0,0.973257034481671,D:\code\paper_b_sim\results\baseline\lfu_0.5.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,0.5,0.02370550365539412,10424980.0,0.9447147225596545,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.5.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,0.5,0.027774280462317124,12154330.0,0.8046182906896711,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_0.5.json
+lru,LRU,0.7,0.004769638825237748,2359160.0,0.9468379987973109,D:\code\paper_b_sim\results\baseline\lru_0.7.json
+fixed_ttl_lru,Fixed-TTL+LRU,0.7,0.005730701113825028,2816930.0,0.8568936642439927,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.7.json
+gdsf,GDSF,0.7,0.005376772789207005,2907560.0,0.9620563276561168,D:\code\paper_b_sim\results\baseline\gdsf_0.7.json
+adaptive_ttl_only,Adaptive-TTL-only,0.7,0.00762624609349863,3440360.0,2.2396706580706764,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_0.7.json
+lfu,LFU,0.7,0.007629043945867152,3981670.0,0.9612123697520045,D:\code\paper_b_sim\results\baseline\lfu_0.7.json
+ttlmin_extnd,TTLmin_extnd,0.7,0.009856833894302733,4634900.0,0.9322855987840594,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_0.7.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,0.7,0.010743753095124183,5070940.0,0.9354998861333688,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.7.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,0.7,0.012314047736957111,5629690.0,0.8121929451823586,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_0.7.json
+lru,LRU,1.0,0.0018857524963837758,881700.0,0.975588357972831,D:\code\paper_b_sim\results\baseline\lru_1.0.json
+gdsf,GDSF,1.0,0.00232851263370237,1249850.0,0.9689003434749774,D:\code\paper_b_sim\results\baseline\gdsf_1.0.json
+lfu,LFU,1.0,0.004817901778594751,2337010.0,0.970217788946236,D:\code\paper_b_sim\results\baseline\lfu_1.0.json
+fixed_ttl_lru,Fixed-TTL+LRU,1.0,0.004665418824510306,2359540.0,0.6268556508732256,D:\code\paper_b_sim\results\baseline\fixed_ttl_lru_1.0.json
+dtlm_v3_1_continuous_tau,DTLM v3.1 continuous tau,1.0,0.005712515073429635,2625720.0,0.7819183600462339,D:\code\paper_b_sim\results\dtlm_v3_1_continuous_tau\final\dtlm_v3_1_continuous_tau_1.0.json
+adaptive_ttl_only,Adaptive-TTL-only,1.0,0.00762624609349863,3440360.0,1.5677694606494736,D:\code\paper_b_sim\results\baseline\adaptive_ttl_only_1.0.json
+ttlmin_extnd,TTLmin_extnd,1.0,0.00845301146839686,3839500.0,0.9317725378361859,D:\code\paper_b_sim\results\baseline\ttlmin_extnd_1.0.json
+adaptive_ttl_lru,Adaptive-TTL+LRU,1.0,0.008438322743462118,3844180.0,0.9470911267470138,D:\code\paper_b_sim\results\baseline\adaptive_ttl_lru_1.0.json

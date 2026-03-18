@@ -1,0 +1,68 @@
+M_ratio=0.1
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. LFU: cost=57449000, CSR=12.75%
+  3. GDSF: cost=57691770, CSR=12.94%
+  4. DTLM v3.1 continuous tau: cost=57741250, CSR=12.95%
+  5. TTLmin_extnd: cost=58484110, CSR=12.90%
+  6. LRU: cost=67476380, CSR=15.05%
+  7. Fixed-TTL+LRU: cost=67476380, CSR=15.05%
+  8. Adaptive-TTL+LRU: cost=67476720, CSR=15.05%
+
+M_ratio=0.2
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. TTLmin_extnd: cost=32172390, CSR=7.32%
+  3. LFU: cost=51050960, CSR=11.27%
+  4. GDSF: cost=51196200, CSR=11.30%
+  5. DTLM v3.1 continuous tau: cost=52154340, CSR=11.73%
+  6. Adaptive-TTL+LRU: cost=61329740, CSR=13.72%
+  7. LRU: cost=62533190, CSR=13.98%
+  8. Fixed-TTL+LRU: cost=62533190, CSR=13.98%
+
+M_ratio=0.3
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. TTLmin_extnd: cost=14314130, CSR=3.33%
+  3. GDSF: cost=16284490, CSR=4.02%
+  4. LFU: cost=18573320, CSR=4.16%
+  5. Adaptive-TTL+LRU: cost=30931750, CSR=7.02%
+  6. LRU: cost=31002450, CSR=7.03%
+  7. Fixed-TTL+LRU: cost=31002450, CSR=7.03%
+  8. DTLM v3.1 continuous tau: cost=32548490, CSR=7.45%
+
+M_ratio=0.5
+  1. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  2. TTLmin_extnd: cost=6477440, CSR=1.38%
+  3. GDSF: cost=7666250, CSR=1.73%
+  4. LRU: cost=8468710, CSR=1.95%
+  5. Fixed-TTL+LRU: cost=8541800, CSR=1.97%
+  6. LFU: cost=9024280, CSR=2.03%
+  7. Adaptive-TTL+LRU: cost=10424980, CSR=2.37%
+  8. DTLM v3.1 continuous tau: cost=12154330, CSR=2.78%
+
+M_ratio=0.7
+  1. LRU: cost=2359160, CSR=0.48%
+  2. Fixed-TTL+LRU: cost=2816930, CSR=0.57%
+  3. GDSF: cost=2907560, CSR=0.54%
+  4. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  5. LFU: cost=3981670, CSR=0.76%
+  6. TTLmin_extnd: cost=4634900, CSR=0.99%
+  7. Adaptive-TTL+LRU: cost=5070940, CSR=1.07%
+  8. DTLM v3.1 continuous tau: cost=5629690, CSR=1.23%
+
+M_ratio=1.0
+  1. LRU: cost=881700, CSR=0.19%
+  2. GDSF: cost=1249850, CSR=0.23%
+  3. LFU: cost=2337010, CSR=0.48%
+  4. Fixed-TTL+LRU: cost=2359540, CSR=0.47%
+  5. DTLM v3.1 continuous tau: cost=2625720, CSR=0.57%
+  6. Adaptive-TTL-only: cost=3440360, CSR=0.76%
+  7. TTLmin_extnd: cost=3839500, CSR=0.85%
+  8. Adaptive-TTL+LRU: cost=3844180, CSR=0.84%
+
+DTLM continuous tau rank summary
+- M_ratio=0.1: rank 4
+- M_ratio=0.2: rank 5
+- M_ratio=0.3: rank 8
+- M_ratio=0.5: rank 8
+- M_ratio=0.7: rank 8
+- M_ratio=1.0: rank 5
+- average rank: 6.33

@@ -1,0 +1,54 @@
+=== Step 2 快速验证 ===
+总运行时间：62.8s
+| M_ratio | CSR | Total Cost | TTL Reclaims | Evictions | tau_min | tau_median | tau_max |
+|---|---|---|---|---|---|---|---|
+| 0.2 | 45.98% | 26739220 | 0 | 290759 | 60000 | 1800000 | 1800000 |
+| 0.3 | 25.85% | 15040870 | 1 | 157422 | 60000 | 1800000 | 1800000 |
+| 0.5 | 2.06% | 1216970 | 14 | 12890 | 60000 | 1800000 | 1800000 |
+
+M_ratio=0.2 对比 GDSF：DTLM CSR=45.98% vs GDSF CSR=10.34%
+
+=== Step 3 完成 ===
+实验数：27
+总运行时间：315.1s
+最优参数：k_tau=2.0, p_high=0.75
+
+每个 M_ratio 的 top 3：
+M_ratio=0.2:
+| k_tau | p_high | CSR | Total Cost |
+|---|---|---|---|
+| 5.0 | 0.75 | 45.16% | 26256110 |
+| 5.0 | 0.85 | 45.16% | 26256110 |
+| 5.0 | 0.95 | 45.16% | 26256110 |
+M_ratio=0.3:
+| k_tau | p_high | CSR | Total Cost |
+|---|---|---|---|
+| 2.0 | 0.75 | 21.55% | 12462380 |
+| 2.0 | 0.85 | 21.55% | 12462380 |
+| 2.0 | 0.95 | 21.55% | 12462380 |
+M_ratio=0.5:
+| k_tau | p_high | CSR | Total Cost |
+|---|---|---|---|
+| 2.0 | 0.75 | 1.76% | 1035940 |
+| 2.0 | 0.85 | 1.76% | 1035940 |
+| 2.0 | 0.95 | 1.82% | 1070200 |
+
+=== Step 4 完成 ===
+总运行时间：230.3s
+结果表：results/dtlm_v2/full/dtlm_v2_results_table.csv
+Cost vs M 图：results/dtlm_v2/full/dtlm_v2_cost_vs_M.png
+
+DTLM v2 每个 M_ratio 的排名：
+- M_ratio=0.1: rank 8
+- M_ratio=0.2: rank 8
+- M_ratio=0.3: rank 8
+- M_ratio=0.5: rank 6
+- M_ratio=0.7: rank 4
+- M_ratio=1.0: rank 3
+- 平均 rank: 6.17
+
+成功标准检查：
+- M_ratio=0.1–0.2 时 CSR 不超过 GDSF 的 1.5 倍：不通过
+- M_ratio=0.3–0.5 时 total cost <= GDSF：不通过
+- M_ratio=0.7–1.0 时 total cost < Adaptive-TTL+LRU：通过
+- 6 个 M_ratio 平均 rank <= 3：不通过

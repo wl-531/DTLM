@@ -1,0 +1,19 @@
+{
+  "v3_1_discrete": {
+    "bucket_ratio": {
+      "cold": 0.8,
+      "warm": 0.06060606060606061,
+      "hot": 0.1393939393939394
+    },
+    "cold_floor_ratio": 0.8,
+    "largest_bucket_ratio": 0.8
+  },
+  "continuous_tau": {
+    "p50": 60000.0,
+    "p90": 60000.0,
+    "p95": 60000.0,
+    "hit_tau_min_ratio": 0.0,
+    "hit_tau_max_ratio": 0.8424242424242424,
+    "largest_bin_ratio": 0.8424242424242424
+  }
+}

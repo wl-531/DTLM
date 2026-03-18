@@ -1,0 +1,49 @@
+{
+  "policy": "dtlm_v3_1",
+  "source_policy": "dtlm",
+  "M_ratio": 0.2,
+  "M_MB": 1955.8,
+  "seed": 42,
+  "days": [
+    3,
+    12
+  ],
+  "working_set_days": [
+    5,
+    12
+  ],
+  "warmup_days": 2,
+  "working_set_mean_MB": 9778.8,
+  "policy_kwargs": {
+    "p_deactivate": 0.95,
+    "hot_threshold": 10,
+    "warm_threshold": 1,
+    "tau_hot_ms": 1200000,
+    "tau_warm_ms": 360000,
+    "tau_cold_ms": 120000,
+    "t_protect_ms": 60000,
+    "ttl_scan_interval_ms": 60000,
+    "physical_delete_requires_pressure": true
+  },
+  "metrics": {
+    "cold_start_rate": 0.10881057700109396,
+    "total_cold_start_cost": 49093970.0,
+    "avg_memory_utilization": 0.9528684394885562,
+    "peak_memory_mb": 1955.7454545455475,
+    "total_requests": 1429668,
+    "total_cold_starts": 155563,
+    "memory_unconstrained": false
+  },
+  "diagnostics": {
+    "warm_count": 12,
+    "memory_used": 1859.6060606061546,
+    "memory_budget": 1955.7521831659851,
+    "pressure": 0.9508393121646995,
+    "clock": 86878.10231331333,
+    "ttl_reclaim_count": 139,
+    "eviction_count": 194959,
+    "ttl_active_scans": 8877,
+    "ttl_skipped_scans": 8402,
+    "logically_expired_count": 0
+  }
+}

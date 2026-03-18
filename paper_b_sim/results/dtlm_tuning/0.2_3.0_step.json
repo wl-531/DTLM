@@ -1,0 +1,32 @@
+{
+  "policy": "dtlm",
+  "M_ratio": 0.2,
+  "M_MB": 1955.8,
+  "cold_start_scale": 1.0,
+  "seed": 42,
+  "days": [
+    3,
+    12
+  ],
+  "working_set_days": [
+    5,
+    12
+  ],
+  "warmup_days": 2,
+  "working_set_mean_MB": 9778.8,
+  "metrics": {
+    "cold_start_rate": 0.18264310315401897,
+    "total_cold_start_cost": 80335910.0,
+    "avg_memory_utilization": 0.9517194454837743,
+    "peak_memory_mb": 1955.7363636365524,
+    "total_requests": 1429668,
+    "total_cold_starts": 261119,
+    "memory_unconstrained": false,
+    "runtime_seconds": 13.3
+  },
+  "policy_kwargs": {
+    "quantile_multiplier": 3.0,
+    "decay_type": "step",
+    "sim_start_ms": 172800000
+  }
+}

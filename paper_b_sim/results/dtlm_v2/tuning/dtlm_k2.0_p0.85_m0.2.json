@@ -1,0 +1,42 @@
+{
+  "policy": "dtlm",
+  "M_ratio": 0.2,
+  "M_MB": 1971.2,
+  "cold_start_scale": 1.0,
+  "seed": 42,
+  "days": [
+    1,
+    3
+  ],
+  "working_set_days": [
+    3,
+    3
+  ],
+  "warmup_days": 2,
+  "working_set_mean_MB": 9855.8,
+  "metrics": {
+    "cold_start_rate": 0.4601771820186672,
+    "total_cold_start_cost": 26686230.0,
+    "avg_memory_utilization": 0.9529584546889238,
+    "peak_memory_mb": 1971.1666666667434,
+    "total_requests": 185459,
+    "total_cold_starts": 85344,
+    "memory_unconstrained": false,
+    "runtime_seconds": 7.4
+  },
+  "policy_kwargs": {
+    "k_tau": 2.0,
+    "p_high": 0.85,
+    "sim_start_ms": 0
+  },
+  "dtlm_v2_debug": {
+    "ttl_expire_count": 0,
+    "eviction_count": 285180,
+    "ttl_skip_high_pressure_count": 184,
+    "tau_base_stats": {
+      "min_ms": 60000.0,
+      "median_ms": 1800000.0,
+      "max_ms": 1800000.0
+    }
+  }
+}
