@@ -15,7 +15,7 @@ from engine import simulate
 from metrics import summary
 from runner import POLICY_MAP, prepare_data
 
-ROOT = Path(r"D:\code\paper_b_sim")
+ROOT = Path(__file__).resolve().parent
 RESULTS_DIR = ROOT / "results" / "dtlm_v3"
 QUICK_DIR = RESULTS_DIR / "quick"
 TUNING_DIR = RESULTS_DIR / "tuning"

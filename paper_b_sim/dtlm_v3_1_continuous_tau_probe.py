@@ -12,7 +12,7 @@ from engine import simulate
 from metrics import summary
 from runner import POLICY_MAP, prepare_data
 
-ROOT = Path(r"D:\code\paper_b_sim")
+ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / "results" / "dtlm_v3_1_continuous_tau"
 FINAL_DIR = OUT_DIR / "final"
 BASELINE_DIR = ROOT / "results" / "baseline"

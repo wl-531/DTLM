@@ -9,7 +9,7 @@ from policies.dtlm import DTLM
 from policies.gdsf import GDSF
 from runner import prepare_data
 
-ROOT = Path(r"D:\code\paper_b_sim")
+ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / "results" / "dtlm_v3_diagnosis_m1"
 SELECTED_PARAMS_PATH = ROOT / "results" / "dtlm_v3" / "selected_params.json"
 SEED = 42

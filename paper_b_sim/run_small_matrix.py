@@ -1,6 +1,10 @@
-"""Small matrix validation: DTLM / GDSF / C2RD-SR × M_ratio {0.3,0.5,0.7,1.0}
+"""Small matrix validation (v3.1): DTLM / GDSF / C2RD-SR × M_ratio {0.3,0.5,0.7,1.0}
 Validates Group 1 (cold-start breakdown), Group 3 (deletion-time utilization),
 and confirms Group 4 (per_function_stats) is populated.
+
+DTLM runs with paper-frozen v3.1 parameters (physical_delete_requires_pressure=True,
+p_deactivate=0.95). Tau values are loaded from results/dtlm_v3/selected_params.json
+if available, otherwise hardcoded fallback values are used.
 """
 import json
 import os
@@ -18,7 +22,42 @@ DAYS = (3, 12)
 WORKING_SET_DAYS = (5, 12)
 WARMUP_DAYS = 2
 
-OUTPUT_DIR = Path(r"D:\code\paper_b_sim\results\small_matrix")
+_PROJECT_DIR = Path(__file__).resolve().parent
+OUTPUT_DIR = _PROJECT_DIR / "results" / "small_matrix_v3_1"
+
+# --- DTLM v3.1 参数 ---
+_DTLM_V31_FALLBACK_TAUS = {
+    "tau_hot_ms": 1200000,
+    "tau_warm_ms": 360000,
+    "tau_cold_ms": 120000,
+}
+
+def _load_dtlm_v31_kwargs():
+    """Load v3.1 DTLM kwargs: tau from selected_params.json if available, rest fixed."""
+    taus = dict(_DTLM_V31_FALLBACK_TAUS)
+    params_path = _PROJECT_DIR / "results" / "dtlm_v3" / "selected_params.json"
+    if params_path.exists():
+        with open(params_path, "r", encoding="utf-8") as f:
+            saved = json.load(f)
+        for key in ("tau_hot_ms", "tau_warm_ms", "tau_cold_ms"):
+            if key in saved:
+                taus[key] = saved[key]
+        print(f"Loaded tau values from {params_path}: {taus}")
+    else:
+        print(f"selected_params.json not found, using fallback tau values: {taus}")
+    return {
+        "physical_delete_requires_pressure": True,
+        "p_deactivate": 0.95,
+        "hot_threshold": 10,
+        "warm_threshold": 1,
+        "t_protect_ms": 60000,
+        "ttl_scan_interval_ms": 60000,
+        **taus,
+    }
+
+POLICY_KWARGS = {
+    "dtlm": _load_dtlm_v31_kwargs(),
+}
 REQUIRED_FIELDS = ["cold_start_breakdown", "utilization_stats", "per_function_stats"]
 
 
@@ -49,6 +88,7 @@ def main():
                 cold_start_scale=COLD_START_SCALE,
                 output_path=str(output_path),
                 warmup_days=WARMUP_DAYS,
+                policy_kwargs=POLICY_KWARGS.get(policy_name),
             )
             elapsed = time.time() - t0
 

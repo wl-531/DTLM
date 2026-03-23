@@ -11,7 +11,7 @@ import pandas as pd
 from runner import prepare_data, run_single
 from policies.dtlm import DTLM
 
-RESULTS_DIR = Path(r"D:\code\paper_b_sim\results\dtlm_v2")
+RESULTS_DIR = Path(__file__).resolve().parent / "results" / "dtlm_v2"
 QUICK_DIR = RESULTS_DIR / "quick"
 TUNING_DIR = RESULTS_DIR / "tuning"
 FULL_DIR = RESULTS_DIR / "full"

@@ -35,8 +35,10 @@ class AnalysisTests(unittest.TestCase):
 
         self.assertEqual(set(result.keys()), {"top_10_harmful", "top_10_beneficial", "net_effect_by_hotness", "summary"})
         self.assertEqual(result["summary"]["total_functions"], 3)
-        self.assertEqual(result["summary"]["functions_with_difference"], 2)
-        self.assertEqual(result["summary"]["net_cost_delta"], 30.0)
+        self.assertEqual(result["summary"]["changed_functions"], 2)
+        self.assertEqual(result["summary"]["net_delta_cost"], 30.0)
+        self.assertEqual(result["summary"]["beneficial_count"], 1)
+        self.assertEqual(result["summary"]["harmful_count"], 1)
 
         harmful = result["top_10_harmful"]
         beneficial = result["top_10_beneficial"]
@@ -44,15 +46,20 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(harmful[0]["func_id"], "f_hot")
         self.assertEqual(harmful[0]["delta_cost"], 50.0)
         self.assertEqual(harmful[0]["hotness"], "hot")
+        self.assertEqual(harmful[0]["dtlm_cold_count"], 3)
+        self.assertEqual(harmful[0]["baseline_cold_count"], 2)
 
         self.assertEqual(len(beneficial), 1)
         self.assertEqual(beneficial[0]["func_id"], "f_warm")
         self.assertEqual(beneficial[0]["delta_cost"], -20.0)
         self.assertEqual(beneficial[0]["hotness"], "warm")
 
-        self.assertEqual(result["net_effect_by_hotness"]["hot"], 50.0)
-        self.assertEqual(result["net_effect_by_hotness"]["warm"], -20.0)
-        self.assertEqual(result["net_effect_by_hotness"]["cold"], 0.0)
+        self.assertEqual(result["net_effect_by_hotness"]["hot"]["total_delta_cost"], 50.0)
+        self.assertEqual(result["net_effect_by_hotness"]["warm"]["total_delta_cost"], -20.0)
+        self.assertEqual(result["net_effect_by_hotness"]["cold"]["total_delta_cost"], 0.0)
+        self.assertEqual(result["net_effect_by_hotness"]["hot"]["function_count"], 1)
+        self.assertEqual(result["net_effect_by_hotness"]["warm"]["function_count"], 1)
+        self.assertEqual(result["net_effect_by_hotness"]["cold"]["function_count"], 1)
 
 
 if __name__ == "__main__":

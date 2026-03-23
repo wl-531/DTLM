@@ -57,7 +57,7 @@ class RegressionTests(unittest.TestCase):
         self.assertTrue(results[2][2])
         self.assertEqual(policy.ttl_expire_count, 1)
 
-    def test_ttlmin_extnd_evicts_coldest_live_function_under_iat_ttl(self):
+    def test_ttlmin_extnd_evicts_shortest_remaining_ttl_live_function(self):
         functions_info = {
             "hot": {"m_i": 1, "c_i": 1},
             "cold": {"m_i": 1, "c_i": 1},
@@ -73,8 +73,10 @@ class RegressionTests(unittest.TestCase):
 
         policy.on_request(1000, "new")
 
-        self.assertIn("hot", policy.warm)
-        self.assertNotIn("cold", policy.warm)
+        # hot: remaining TTL = 200 - (1000-900) = 100 (shortest → evicted)
+        # cold: remaining TTL = 2000 - (1000-0) = 1000
+        self.assertNotIn("hot", policy.warm)
+        self.assertIn("cold", policy.warm)
         self.assertIn("new", policy.warm)
 
     def test_dtlm_skips_ttl_under_high_pressure(self):

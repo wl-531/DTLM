@@ -12,7 +12,7 @@ import pandas as pd
 
 from runner import prepare_data, run_single, run_divergence_pair
 
-RESULTS_DIR = Path(r"D:\code\paper_b_sim\results")
+RESULTS_DIR = Path(__file__).resolve().parent / "results"
 BASELINE_DIR = RESULTS_DIR / "baseline"
 SENSITIVITY_DIR = RESULTS_DIR / "sensitivity"
 DTLM_TUNING_DIR = RESULTS_DIR / "dtlm_tuning"
@@ -50,6 +50,47 @@ WORKING_SET_DAYS = (5, 12)
 WARMUP_DAYS = 2
 SEED = 42
 WARN_THRESHOLD_SECONDS = 300.0
+
+# --- DTLM v3.1 paper-frozen parameters ---
+_DTLM_V31_FALLBACK_TAUS = {
+    "tau_hot_ms": 1200000,
+    "tau_warm_ms": 360000,
+    "tau_cold_ms": 120000,
+}
+
+
+def _load_dtlm_v31_kwargs():
+    """Load DTLM v3.1 kwargs: tau from selected_params.json, rest hardcoded."""
+    taus = dict(_DTLM_V31_FALLBACK_TAUS)
+    params_path = RESULTS_DIR / "dtlm_v3" / "selected_params.json"
+    if params_path.exists():
+        with open(params_path, "r", encoding="utf-8") as f:
+            saved = json.load(f)
+        for key in ("tau_hot_ms", "tau_warm_ms", "tau_cold_ms"):
+            if key in saved:
+                taus[key] = saved[key]
+        print(f"[phase10] Loaded tau from {params_path}: {taus}")
+    else:
+        print(f"[phase10] selected_params.json not found, using fallback: {taus}")
+    return {
+        "physical_delete_requires_pressure": True,
+        "p_deactivate": 0.95,
+        "hot_threshold": 10,
+        "warm_threshold": 1,
+        "t_protect_ms": 60000,
+        "ttl_scan_interval_ms": 60000,
+        **taus,
+    }
+
+
+DTLM_V31_KWARGS = _load_dtlm_v31_kwargs()
+
+
+def _policy_kwargs_for(policy_name):
+    """Return policy_kwargs for a given policy, or None."""
+    if policy_name == "dtlm":
+        return dict(DTLM_V31_KWARGS)
+    return None
 
 
 def format_float(value):
@@ -149,6 +190,7 @@ def run_step1():
                         output_path=str(path),
                         warmup_days=WARMUP_DAYS,
                         warn_threshold_seconds=WARN_THRESHOLD_SECONDS,
+                        policy_kwargs=_policy_kwargs_for(policy),
                     )
                 except Exception as exc:
                     failed += 1
@@ -231,6 +273,7 @@ def run_step2():
                             output_path=str(target),
                             warmup_days=WARMUP_DAYS,
                             warn_threshold_seconds=WARN_THRESHOLD_SECONDS,
+                            policy_kwargs=_policy_kwargs_for(policy),
                         )
                         new_runs += 1
                 completed += 1
@@ -288,87 +331,16 @@ def run_step2():
 
 
 def run_step3():
-    start = time.time()
-    DTLM_TUNING_DIR.mkdir(parents=True, exist_ok=True)
-    data = prepare_data(seed=SEED, days=DAYS, working_set_days=WORKING_SET_DAYS)
-    total = len(SENSITIVITY_M_RATIOS) * len(DTLM_MULTIPLIERS) * len(DTLM_DECAY_TYPES)
-    completed = 0
-    results = {}
-
-    for m_ratio in SENSITIVITY_M_RATIOS:
-        for multiplier in DTLM_MULTIPLIERS:
-            for decay_type in DTLM_DECAY_TYPES:
-                path = dtlm_tuning_path(m_ratio, multiplier, decay_type)
-                label = f"DTLM M={format_float(m_ratio)} q={format_float(multiplier)} decay={decay_type}"
-                result = safe_load(path)
-                if result is None:
-                    result = run_single(
-                        data,
-                        "dtlm",
-                        m_ratio,
-                        output_path=str(path),
-                        warmup_days=WARMUP_DAYS,
-                        warn_threshold_seconds=WARN_THRESHOLD_SECONDS,
-                        policy_kwargs={"quantile_multiplier": multiplier, "decay_type": decay_type},
-                    )
-                completed += 1
-                results[(m_ratio, multiplier, decay_type)] = result
-                print_progress(completed, total, label, result)
-
-    top_lines = []
-    for m_ratio in SENSITIVITY_M_RATIOS:
-        top_lines.append(f"\nM_ratio={format_float(m_ratio)}:")
-        sorted_rows = sorted(
-            [(multiplier, decay_type, results[(m_ratio, multiplier, decay_type)]) for multiplier in DTLM_MULTIPLIERS for decay_type in DTLM_DECAY_TYPES],
-            key=lambda item: cost(item[2]),
-        )[:3]
-        rows = [[format_float(multiplier), decay_type, f"{csr(result) * 100:.2f}%", f"{cost(result):.0f}"] for multiplier, decay_type, result in sorted_rows]
-        top_lines.append(render_table(["multiplier", "decay", "CSR", "Total Cost"], rows))
-
-    combo_scores = []
-    for multiplier in DTLM_MULTIPLIERS:
-        for decay_type in DTLM_DECAY_TYPES:
-            rank_sum = 0
-            cost_sum = 0.0
-            for m_ratio in SENSITIVITY_M_RATIOS:
-                ordered = sorted(
-                    [(m, d, results[(m_ratio, m, d)]) for m in DTLM_MULTIPLIERS for d in DTLM_DECAY_TYPES],
-                    key=lambda item: cost(item[2]),
-                )
-                for rank, (m, d, result) in enumerate(ordered, start=1):
-                    if m == multiplier and d == decay_type:
-                        rank_sum += rank
-                        cost_sum += cost(result)
-                        break
-            combo_scores.append((rank_sum, cost_sum, multiplier, decay_type))
-    combo_scores.sort()
-    _, _, best_multiplier, best_decay = combo_scores[0]
-
-    comparisons = []
-    for m_ratio in SENSITIVITY_M_RATIOS:
-        best = min(
-            [(multiplier, decay_type, results[(m_ratio, multiplier, decay_type)]) for multiplier in DTLM_MULTIPLIERS for decay_type in DTLM_DECAY_TYPES],
-            key=lambda item: cost(item[2]),
-        )
-        baseline_gdsf = load_json(baseline_path("gdsf", m_ratio))
-        baseline_ttl = load_json(baseline_path("ttlmin_extnd", m_ratio))
-        gdsf_gap = (cost(baseline_gdsf) - cost(best[2])) / cost(baseline_gdsf) * 100.0
-        ttl_gap = (cost(baseline_ttl) - cost(best[2])) / cost(baseline_ttl) * 100.0
-        comparisons.append(f"M_ratio={format_float(m_ratio)} best DTLM vs GDSF: {gdsf_gap:.1f}%, vs TTLmin_extnd: {ttl_gap:.1f}%")
-
-    report = "\n".join([
-        "=== Step 3 完成 ===",
-        f"实验数：{len(results)}",
-        f"总运行时间：{time.time() - start:.1f}s",
-        "",
-        "最优组合（按 Total Cost 排序，每个 M_ratio 的 top 3）：",
-        *top_lines,
-        "",
-        f"最优默认参数建议：multiplier={format_float(best_multiplier)}, decay={best_decay}",
-        f"该参数下 DTLM 与 GDSF/TTLmin_extnd 的对比：{' ; '.join(comparisons)}",
-    ])
-    print(report)
-    return report
+    """DEPRECATED: Step 3 tuning data is invalid (quantile_multiplier/decay_type were
+    silently absorbed by **_ignored_kwargs in dtlm.py, so all combos ran identical v3.0).
+    Do not run. Existing results in dtlm_tuning/ are废弃."""
+    print("=" * 60)
+    print("SKIPPED: run_step3() is deprecated.")
+    print("Reason: quantile_multiplier / decay_type were caught by **_ignored_kwargs")
+    print("in dtlm.py, making all tuning combos identical. Data is invalid.")
+    print("See paper_b_framework_v3_5.md section 12.3 for details.")
+    print("=" * 60)
+    return "Step 3 SKIPPED (deprecated)"
 
 
 def load_phase10_results():
@@ -447,23 +419,26 @@ def run_step4():
     fig.savefig(RESULTS_DIR / "sensitivity_plot.png", dpi=200, bbox_inches="tight")
     plt.close(fig)
 
-    fig, axes = plt.subplots(1, 3, figsize=(12, 4), sharey=True, constrained_layout=True)
-    tuning_df = pd.DataFrame([{"M_ratio": p["M_ratio"], "multiplier": p.get("policy_kwargs", {}).get("quantile_multiplier", 2.0), "decay_type": p.get("policy_kwargs", {}).get("decay_type", "linear"), "total_cost": p["metrics"]["total_cold_start_cost"]} for p in tuning_rows])
-    for ax, m_ratio in zip(axes, SENSITIVITY_M_RATIOS):
-        subset = tuning_df[tuning_df["M_ratio"] == m_ratio]
-        pivot = subset.pivot(index="multiplier", columns="decay_type", values="total_cost").reindex(index=DTLM_MULTIPLIERS, columns=DTLM_DECAY_TYPES)
-        image = ax.imshow(pivot.values, aspect="auto", cmap="viridis_r")
-        ax.set_title(f"M_ratio={format_float(m_ratio)}")
-        ax.set_xticks(range(len(DTLM_DECAY_TYPES)), DTLM_DECAY_TYPES)
-        ax.set_yticks(range(len(DTLM_MULTIPLIERS)), [format_float(v) for v in DTLM_MULTIPLIERS])
-        best_idx = np.unravel_index(np.argmin(pivot.values), pivot.values.shape)
-        ax.add_patch(plt.Rectangle((best_idx[1] - 0.5, best_idx[0] - 0.5), 1, 1, fill=False, edgecolor="white", linewidth=2))
-        for i in range(len(DTLM_MULTIPLIERS)):
-            for j in range(len(DTLM_DECAY_TYPES)):
-                ax.text(j, i, f"{pivot.values[i, j]:.0f}", ha="center", va="center", color="white", fontsize=7)
-    fig.colorbar(image, ax=axes.ravel().tolist(), shrink=0.8, label="Total Cost")
-    fig.savefig(RESULTS_DIR / "dtlm_tuning_heatmap.png", dpi=200, bbox_inches="tight")
-    plt.close(fig)
+    if tuning_rows:
+        fig, axes = plt.subplots(1, 3, figsize=(12, 4), sharey=True, constrained_layout=True)
+        tuning_df = pd.DataFrame([{"M_ratio": p["M_ratio"], "multiplier": p.get("policy_kwargs", {}).get("quantile_multiplier", 2.0), "decay_type": p.get("policy_kwargs", {}).get("decay_type", "linear"), "total_cost": p["metrics"]["total_cold_start_cost"]} for p in tuning_rows])
+        for ax, m_ratio in zip(axes, SENSITIVITY_M_RATIOS):
+            subset = tuning_df[tuning_df["M_ratio"] == m_ratio]
+            pivot = subset.pivot(index="multiplier", columns="decay_type", values="total_cost").reindex(index=DTLM_MULTIPLIERS, columns=DTLM_DECAY_TYPES)
+            image = ax.imshow(pivot.values, aspect="auto", cmap="viridis_r")
+            ax.set_title(f"M_ratio={format_float(m_ratio)}")
+            ax.set_xticks(range(len(DTLM_DECAY_TYPES)), DTLM_DECAY_TYPES)
+            ax.set_yticks(range(len(DTLM_MULTIPLIERS)), [format_float(v) for v in DTLM_MULTIPLIERS])
+            best_idx = np.unravel_index(np.argmin(pivot.values), pivot.values.shape)
+            ax.add_patch(plt.Rectangle((best_idx[1] - 0.5, best_idx[0] - 0.5), 1, 1, fill=False, edgecolor="white", linewidth=2))
+            for i in range(len(DTLM_MULTIPLIERS)):
+                for j in range(len(DTLM_DECAY_TYPES)):
+                    ax.text(j, i, f"{pivot.values[i, j]:.0f}", ha="center", va="center", color="white", fontsize=7)
+        fig.colorbar(image, ax=axes.ravel().tolist(), shrink=0.8, label="Total Cost")
+        fig.savefig(RESULTS_DIR / "dtlm_tuning_heatmap.png", dpi=200, bbox_inches="tight")
+        plt.close(fig)
+    else:
+        print("[step4] Skipping tuning heatmap (no tuning data / step3 deprecated)")
 
     baseline_lookup = {(p["policy"], p["M_ratio"]): p for p in baseline_rows}
     best_dtlm_ranges = []
@@ -538,6 +513,7 @@ def run_step5(m_ratio=0.3, snapshot_interval_sec=60):
         dtlm_config={
             "M_ratio": m_ratio,
             "warmup_days": WARMUP_DAYS,
+            "policy_kwargs": dict(DTLM_V31_KWARGS),
         },
         gdsf_config={
             "M_ratio": m_ratio,

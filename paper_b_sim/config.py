@@ -1,5 +1,9 @@
+from pathlib import Path
+
+_PROJECT_DIR = Path(__file__).resolve().parent
+
 TRACE_DIR = r"D:\data\Azure Functions Trace"
-OUTPUT_DIR = r"D:\code\paper_b_sim\results"
+OUTPUT_DIR = str(_PROJECT_DIR / "results")
 SEED = 42
 
 # 抽样参数

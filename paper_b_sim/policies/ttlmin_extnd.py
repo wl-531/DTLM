@@ -65,7 +65,7 @@ class TTLminExtnd(CachePolicy):
             if expired:
                 victim = min(expired, key=lambda f: self.warm[f]["last_access"])
             else:
-                victim = max(self.warm, key=lambda f: self._remaining_ttl(f, timestamp_ms))
+                victim = min(self.warm, key=lambda f: self._remaining_ttl(f, timestamp_ms))
             self.remove_from_cache(victim, "eviction", timestamp_ms)
             self.eviction_count += 1
 

@@ -4,7 +4,12 @@ from policies.base import CachePolicy
 
 
 class DTLMPolicy(CachePolicy):
-    """DTLM: GDSF eviction with pressure-aware TTL overlay."""
+    """DTLM: GDSF eviction with pressure-aware TTL overlay.
+
+    Default parameters correspond to v3.0 behavior (low-pressure deletion).
+    Paper-frozen v3.1 requires explicit physical_delete_requires_pressure=True
+    and p_deactivate=0.95.
+    """
 
     def __init__(
         self,

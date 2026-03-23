@@ -1,6 +1,7 @@
 """Phase 9: 冒烟测试 - 全部 8 策略, M_ratio=0.3, day 1-3 (day3 为评估)"""
 import sys
-sys.path.insert(0, r"D:\code\paper_b_sim")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from runner import prepare_data, run_single, POLICY_MAP, UNCONSTRAINED_POLICIES
 
