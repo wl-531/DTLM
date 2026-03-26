@@ -73,6 +73,8 @@ def cold_start_breakdown(policy, functions_info, skip_warmup=True):
         "expiry_induced_cold_cost": 0.0,
         "eviction_induced_cold_starts": 0,
         "eviction_induced_cold_cost": 0.0,
+        "admission_failure_cold_starts": 0,
+        "admission_failure_cold_cost": 0.0,
     }
     if policy is None:
         return breakdown
@@ -93,6 +95,9 @@ def cold_start_breakdown(policy, functions_info, skip_warmup=True):
         elif cause == "eviction_induced":
             breakdown["eviction_induced_cold_starts"] += 1
             breakdown["eviction_induced_cold_cost"] += cost
+        elif cause == "admission_failure":
+            breakdown["admission_failure_cold_starts"] += 1
+            breakdown["admission_failure_cold_cost"] += cost
     return breakdown
 
 

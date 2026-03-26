@@ -17,6 +17,7 @@ class CachePolicy:
         self.cold_start_log = []
         self.current_cold_start_cause = None
         self.warmup_end_ms = None
+        self._last_cold_admitted = True
 
     def _get_cache_container(self):
         if hasattr(self, "warm_pool"):
@@ -76,6 +77,7 @@ class CachePolicy:
         return entry
 
     def on_request(self, timestamp_ms, func_id):
+        self._last_cold_admitted = True  # 每次请求重置，防止旧状态残留
         raise NotImplementedError
 
     def check_ttl(self, current_time_ms):

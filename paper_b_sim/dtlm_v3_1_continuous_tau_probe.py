@@ -37,7 +37,7 @@ DISPLAY_NAMES = {
     "lfu": "LFU",
     "fixed_ttl_lru": "Fixed-TTL+LRU",
     "gdsf": "GDSF",
-    "iat_adaptive_ttl": "IAT-Adaptive TTL",
+    "iat_adaptive_ttl": "IAT-Adaptive TTL (Adm.)",
     "adaptive_ttl_lru": "Adaptive-TTL+LRU",
     "ttlmin_extnd": "TTLmin_extnd",
     "dtlm_v3_1_continuous_tau": "DTLM v3.1 continuous tau",

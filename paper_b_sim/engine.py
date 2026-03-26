@@ -14,23 +14,33 @@ def simulate(policy, request_stream, warmup_end_ms=None):
         is_warmup = warmup_end_ms is not None and ts < warmup_end_ms
         is_cold = policy.on_request(ts, func_id)
         if is_cold:
-            if not policy.ever_seen.get(func_id, False):
-                cause = "initial"
+            admitted = getattr(policy, '_last_cold_admitted', True)
+
+            if not admitted:
+                cause = "admission_failure"
             else:
-                last_reason = policy.last_removal_reason.get(func_id)
-                if last_reason == "expiry":
-                    cause = "expiry_induced"
-                elif last_reason == "eviction":
-                    cause = "eviction_induced"
-                else:
+                if not policy.ever_seen.get(func_id, False):
                     cause = "initial"
+                else:
+                    last_reason = policy.last_removal_reason.get(func_id)
+                    if last_reason == "expiry":
+                        cause = "expiry_induced"
+                    elif last_reason == "eviction":
+                        cause = "eviction_induced"
+                    else:
+                        cause = "initial"
+                policy.mark_cache_inserted(func_id)
+
+            # 无论是否 admitted，都标记 ever_seen
+            # 否则首次 admission failure 的函数后续永远被归为 "initial"
+            policy.ever_seen[func_id] = True
+
             policy.current_cold_start_cause = cause
             policy.cold_start_log.append({
                 "func_id": func_id,
                 "cause": cause,
                 "timestamp": ts,
             })
-            policy.mark_cache_inserted(func_id)
         else:
             policy.current_cold_start_cause = None
 

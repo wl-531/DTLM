@@ -1,3 +1,6 @@
+# ARCHIVED: Original unconstrained IAT-Adaptive TTL (no capacity check).
+# Replaced by admission-gated version in adaptive_ttl_only.py.
+# Kept for result reproducibility of pre-fix experiments.
 from policies.base import CachePolicy
 
 EMA_ALPHA = 0.3
@@ -5,12 +8,7 @@ DEFAULT_MULTIPLIER = 2.0
 
 
 class AdaptiveTTLOnly(CachePolicy):
-    """IAT-Adaptive TTL (admission-gated, no eviction).
-
-    Capacity-constrained: when free memory < m_i, the request executes
-    as a transient cold start but the container is NOT retained
-    (admission failure). Space is only freed by TTL expiry.
-    """
+    """IAT-Adaptive TTL (no capacity constraint) - SitW-inspired, per-function TTL = multiplier × EMA_IAT, no eviction, not C2RD"""
 
     def __init__(self, M, functions_info, multiplier=DEFAULT_MULTIPLIER):
         super().__init__(M, functions_info)
@@ -44,26 +42,16 @@ class AdaptiveTTLOnly(CachePolicy):
             self.remove_from_cache(fid, "expiry", current_time_ms)
 
     def on_request(self, timestamp_ms, func_id):
-        self._last_cold_admitted = True  # reset per base contract
         self._update_iat(func_id, timestamp_ms)
-
         if func_id in self.warm:
             self.warm[func_id]["last_access"] = timestamp_ms
-            return False  # hit
+            return False
 
         m_i = self.functions_info[func_id]["m_i"]
-
-        # Hard memory constraint: no eviction ability.
-        # If m_i > M the function can never be cached — this is real behavior, not a bug.
-        if self._mem_used + m_i > self.M:
-            self._last_cold_admitted = False
-            return True  # transient cold execution, container not retained
-
         self.warm[func_id] = {"m_i": m_i, "last_access": timestamp_ms}
         self._mem_used += m_i
-        self._last_cold_admitted = True
-        # 不在此处调用 mark_cache_inserted()——由 engine 统一管理
-        return True  # cold start, cached
+        self.mark_cache_inserted(func_id)
+        return True
 
     def memory_used(self):
         return self._mem_used

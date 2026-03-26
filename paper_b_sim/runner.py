@@ -35,7 +35,7 @@ POLICY_MAP = {
     "c2rd_sr": C2RD_SR,
 }
 
-UNCONSTRAINED_POLICIES = {"iat_adaptive_ttl"}
+UNCONSTRAINED_POLICIES = set()
 
 
 def prepare_data(seed=SEED, days=(1, 12), working_set_days=None):

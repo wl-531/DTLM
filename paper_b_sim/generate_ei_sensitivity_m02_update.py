@@ -28,7 +28,7 @@ DISPLAY_NAMES = {
     "lfu": "LFU",
     "fixed_ttl_lru": "Fixed-TTL+LRU",
     "gdsf": "GDSF",
-    "iat_adaptive_ttl": "IAT-Adaptive TTL",
+    "iat_adaptive_ttl": "IAT-Adaptive TTL (Adm.)",
     "adaptive_ttl_lru": "Adaptive-TTL+LRU",
     "ttlmin_extnd": "TTLmin_extnd",
     "c2rd_sr": "C2RD-SR",
@@ -143,8 +143,8 @@ def compute_ranks_and_report():
     # EI-DTLM M=0.2 的 cost
     lines.append("## 2. EI-DTLM M=0.2 各 scale 下的 cost 与排名")
     lines.append("")
-    lines.append("| scale | EI-DTLM cost | rank (9策略) | rank (constrained 8策略) |")
-    lines.append("|-------|-------------|-------------|------------------------|")
+    lines.append("| scale | EI-DTLM cost | rank (9策略) |")
+    lines.append("|-------|-------------|-------------|")
 
     for scale in COLD_START_SCALES:
         all_costs = {}
@@ -156,12 +156,8 @@ def compute_ranks_and_report():
         ranked = sorted(all_costs.items(), key=lambda x: x[1])
         ei_rank_all = next(i + 1 for i, (k, _) in enumerate(ranked) if k == "ei_dtlm")
 
-        constrained = {k: v for k, v in all_costs.items() if k != "iat_adaptive_ttl"}
-        ranked_c = sorted(constrained.items(), key=lambda x: x[1])
-        ei_rank_c = next(i + 1 for i, (k, _) in enumerate(ranked_c) if k == "ei_dtlm")
-
         ei_cost = all_costs["ei_dtlm"]
-        lines.append(f"| {fmt(scale)} | {ei_cost:,.0f} | {ei_rank_all} | {ei_rank_c} |")
+        lines.append(f"| {fmt(scale)} | {ei_cost:,.0f} | {ei_rank_all} |")
 
     # sensitivity stability across all 3 M_ratios
     lines.append("")
