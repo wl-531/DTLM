@@ -1,0 +1,3441 @@
+log_path: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\full_run_log.txt
+Static runner policies: adaptive_ttl_lru, c2rd_sr, dtlm, ei_dtlm, fixed_ttl_lru, gdsf, iat_adaptive_ttl, lfu, lru, ttlmin_extnd
+Planned-but-missing names: fifo, s_cache, dtlm_vanilla_gdsf
+seed=42, days=(3, 12), working_set_days=(5, 12), warmup_days=2
+Loaded memory for 23961 apps
+Sampled 50 apps: 1 small, 1 large, 48 middle
+Loaded invocations: 1330 function-day rows
+Loaded triggers for 46412 functions
+Building request stream day 3-12...
+Built request stream: 1796481 events, day 3-12
+Computing working set (day 5-12)...
+Built request stream: 1429668 events, day 5-12
+Working set: mean=9778.8 MB, min=4310.2, max=18305.8, samples=11520
+Working set mean: 9778.8 MB
+
+========================================================================
+EXP 1 - naive_overlay
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\naive_overlay\naive_1.0.json
+========================================================================
+EXP 1 执行: dtlm naive M=1.0
+Running dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\naive_overlay\naive_1.0.json
+
+EXP 1 摘要
+实验名称: naive_overlay
+状态: 成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\naive_overlay
+新生成文件数: 0
+关键指标摘要: total_cold_start_cost=4880670.0000, total_cold_starts=16271, avg_memory_utilization=0.6945
+
+========================================================================
+EXP 2 - gate_ablation
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\gate_ablation
+========================================================================
+EXP 2 执行: gate_off M=1.0
+Running dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\gate_ablation\gate_off_1.0.json
+EXP 2 执行: gate_on M=1.0
+Running dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\gate_ablation\gate_on_1.0.json
+
+EXP 2 摘要
+实验名称: gate_ablation
+状态: 成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\gate_ablation
+新生成文件数: 0
+关键指标摘要: gate_off total_cold_start_cost=2271460.0000, gate_on total_cold_start_cost=1181620.0000
+
+========================================================================
+EXP 3 - baseline
+available policies: dtlm, gdsf, lru, lfu, c2rd_sr, iat_adaptive_ttl, adaptive_ttl_lru, fixed_ttl_lru, ttlmin_extnd
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline
+========================================================================
+跳过原因: policy fifo: policy not found in POLICY_MAP
+跳过原因: policy s_cache: policy not found in POLICY_MAP
+跳过原因: policy dtlm_vanilla_gdsf: policy not found in POLICY_MAP
+EXP 3 执行: dtlm M=0.1
+Running dtlm (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_0.1.json
+EXP 3 执行: dtlm M=0.2
+Running dtlm (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_0.2.json
+EXP 3 执行: dtlm M=0.3
+Running dtlm (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_0.3.json
+EXP 3 执行: dtlm M=0.5
+Running dtlm (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_0.5.json
+EXP 3 执行: dtlm M=0.7
+Running dtlm (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_0.7.json
+EXP 3 执行: dtlm M=1.0
+Running dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\dtlm_1.0.json
+EXP 3 执行: gdsf M=0.1
+Running gdsf (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_0.1.json
+EXP 3 执行: gdsf M=0.2
+Running gdsf (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_0.2.json
+EXP 3 执行: gdsf M=0.3
+Running gdsf (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_0.3.json
+EXP 3 执行: gdsf M=0.5
+Running gdsf (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_0.5.json
+EXP 3 执行: gdsf M=0.7
+Running gdsf (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_0.7.json
+EXP 3 执行: gdsf M=1.0
+Running gdsf (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\gdsf_1.0.json
+EXP 3 执行: lru M=0.1
+Running lru (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_0.1.json
+EXP 3 执行: lru M=0.2
+Running lru (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_0.2.json
+EXP 3 执行: lru M=0.3
+Running lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_0.3.json
+EXP 3 执行: lru M=0.5
+Running lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_0.5.json
+EXP 3 执行: lru M=0.7
+Running lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_0.7.json
+EXP 3 执行: lru M=1.0
+Running lru (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lru_1.0.json
+EXP 3 执行: lfu M=0.1
+Running lfu (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_0.1.json
+EXP 3 执行: lfu M=0.2
+Running lfu (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_0.2.json
+EXP 3 执行: lfu M=0.3
+Running lfu (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_0.3.json
+EXP 3 执行: lfu M=0.5
+Running lfu (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_0.5.json
+EXP 3 执行: lfu M=0.7
+Running lfu (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_0.7.json
+EXP 3 执行: lfu M=1.0
+Running lfu (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\lfu_1.0.json
+EXP 3 执行: c2rd_sr M=0.1
+Running c2rd_sr (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_0.1.json
+EXP 3 执行: c2rd_sr M=0.2
+Running c2rd_sr (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_0.2.json
+EXP 3 执行: c2rd_sr M=0.3
+Running c2rd_sr (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_0.3.json
+EXP 3 执行: c2rd_sr M=0.5
+Running c2rd_sr (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_0.5.json
+EXP 3 执行: c2rd_sr M=0.7
+Running c2rd_sr (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_0.7.json
+EXP 3 执行: c2rd_sr M=1.0
+Running c2rd_sr (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\c2rd_sr_1.0.json
+EXP 3 执行: iat_adaptive_ttl M=0.1
+Running iat_adaptive_ttl (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_0.1.json
+EXP 3 执行: iat_adaptive_ttl M=0.2
+Running iat_adaptive_ttl (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_0.2.json
+EXP 3 执行: iat_adaptive_ttl M=0.3
+Running iat_adaptive_ttl (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_0.3.json
+EXP 3 执行: iat_adaptive_ttl M=0.5
+Running iat_adaptive_ttl (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_0.5.json
+EXP 3 执行: iat_adaptive_ttl M=0.7
+Running iat_adaptive_ttl (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_0.7.json
+EXP 3 执行: iat_adaptive_ttl M=1.0
+Running iat_adaptive_ttl (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\iat_adaptive_ttl_1.0.json
+EXP 3 执行: adaptive_ttl_lru M=0.1
+Running adaptive_ttl_lru (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.1.json
+EXP 3 执行: adaptive_ttl_lru M=0.2
+Running adaptive_ttl_lru (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.2.json
+EXP 3 执行: adaptive_ttl_lru M=0.3
+Running adaptive_ttl_lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.3.json
+EXP 3 执行: adaptive_ttl_lru M=0.5
+Running adaptive_ttl_lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.5.json
+EXP 3 执行: adaptive_ttl_lru M=0.7
+Running adaptive_ttl_lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_0.7.json
+EXP 3 执行: adaptive_ttl_lru M=1.0
+Running adaptive_ttl_lru (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\adaptive_ttl_lru_1.0.json
+EXP 3 执行: fixed_ttl_lru M=0.1
+Running fixed_ttl_lru (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.1.json
+EXP 3 执行: fixed_ttl_lru M=0.2
+Running fixed_ttl_lru (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.2.json
+EXP 3 执行: fixed_ttl_lru M=0.3
+Running fixed_ttl_lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.3.json
+EXP 3 执行: fixed_ttl_lru M=0.5
+Running fixed_ttl_lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.5.json
+EXP 3 执行: fixed_ttl_lru M=0.7
+Running fixed_ttl_lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_0.7.json
+EXP 3 执行: fixed_ttl_lru M=1.0
+Running fixed_ttl_lru (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\fixed_ttl_lru_1.0.json
+EXP 3 执行: ttlmin_extnd M=0.1
+Running ttlmin_extnd (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_0.1.json
+EXP 3 执行: ttlmin_extnd M=0.2
+Running ttlmin_extnd (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_0.2.json
+EXP 3 执行: ttlmin_extnd M=0.3
+Running ttlmin_extnd (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_0.3.json
+EXP 3 执行: ttlmin_extnd M=0.5
+Running ttlmin_extnd (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_0.5.json
+EXP 3 执行: ttlmin_extnd M=0.7
+Running ttlmin_extnd (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_0.7.json
+EXP 3 执行: ttlmin_extnd M=1.0
+Running ttlmin_extnd (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline\ttlmin_extnd_1.0.json
+
+EXP 3 摘要
+实验名称: baseline
+状态: 部分成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\baseline
+新生成文件数: 51
+关键指标摘要: total_cold_start_cost=1249850.0000, total_cold_starts=3329, avg_memory_utilization=0.9684
+
+========================================================================
+EXP 4 - sensitivity
+available policies: dtlm, gdsf, lru, lfu, c2rd_sr, iat_adaptive_ttl, adaptive_ttl_lru, fixed_ttl_lru, ttlmin_extnd
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity
+========================================================================
+跳过原因: policy fifo: policy not found in POLICY_MAP
+跳过原因: policy s_cache: policy not found in POLICY_MAP
+跳过原因: policy dtlm_vanilla_gdsf: policy not found in POLICY_MAP
+EXP 4 执行: dtlm M=0.3 scale=0.5
+Running dtlm (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.3_0.5.json
+EXP 4 执行: dtlm M=0.3 scale=1.0
+Running dtlm (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.3_1.0.json
+EXP 4 执行: dtlm M=0.3 scale=2.0
+Running dtlm (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.3_2.0.json
+EXP 4 执行: dtlm M=0.5 scale=0.5
+Running dtlm (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.5_0.5.json
+EXP 4 执行: dtlm M=0.5 scale=1.0
+Running dtlm (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.5_1.0.json
+EXP 4 执行: dtlm M=0.5 scale=2.0
+Running dtlm (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.5_2.0.json
+EXP 4 执行: dtlm M=0.7 scale=0.5
+Running dtlm (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.7_0.5.json
+EXP 4 执行: dtlm M=0.7 scale=1.0
+Running dtlm (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.7_1.0.json
+EXP 4 执行: dtlm M=0.7 scale=2.0
+Running dtlm (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\dtlm_0.7_2.0.json
+EXP 4 执行: gdsf M=0.3 scale=0.5
+Running gdsf (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.3_0.5.json
+EXP 4 执行: gdsf M=0.3 scale=1.0
+Running gdsf (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.3_1.0.json
+EXP 4 执行: gdsf M=0.3 scale=2.0
+Running gdsf (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.3_2.0.json
+EXP 4 执行: gdsf M=0.5 scale=0.5
+Running gdsf (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.5_0.5.json
+EXP 4 执行: gdsf M=0.5 scale=1.0
+Running gdsf (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.5_1.0.json
+EXP 4 执行: gdsf M=0.5 scale=2.0
+Running gdsf (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.5_2.0.json
+EXP 4 执行: gdsf M=0.7 scale=0.5
+Running gdsf (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.7_0.5.json
+EXP 4 执行: gdsf M=0.7 scale=1.0
+Running gdsf (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.7_1.0.json
+EXP 4 执行: gdsf M=0.7 scale=2.0
+Running gdsf (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\gdsf_0.7_2.0.json
+EXP 4 执行: lru M=0.3 scale=0.5
+Running lru (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.3_0.5.json
+EXP 4 执行: lru M=0.3 scale=1.0
+Running lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.3_1.0.json
+EXP 4 执行: lru M=0.3 scale=2.0
+Running lru (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.3_2.0.json
+EXP 4 执行: lru M=0.5 scale=0.5
+Running lru (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.5_0.5.json
+EXP 4 执行: lru M=0.5 scale=1.0
+Running lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.5_1.0.json
+EXP 4 执行: lru M=0.5 scale=2.0
+Running lru (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.5_2.0.json
+EXP 4 执行: lru M=0.7 scale=0.5
+Running lru (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.7_0.5.json
+EXP 4 执行: lru M=0.7 scale=1.0
+Running lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.7_1.0.json
+EXP 4 执行: lru M=0.7 scale=2.0
+Running lru (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lru_0.7_2.0.json
+EXP 4 执行: lfu M=0.3 scale=0.5
+Running lfu (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.3_0.5.json
+EXP 4 执行: lfu M=0.3 scale=1.0
+Running lfu (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.3_1.0.json
+EXP 4 执行: lfu M=0.3 scale=2.0
+Running lfu (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.3_2.0.json
+EXP 4 执行: lfu M=0.5 scale=0.5
+Running lfu (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.5_0.5.json
+EXP 4 执行: lfu M=0.5 scale=1.0
+Running lfu (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.5_1.0.json
+EXP 4 执行: lfu M=0.5 scale=2.0
+Running lfu (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.5_2.0.json
+EXP 4 执行: lfu M=0.7 scale=0.5
+Running lfu (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.7_0.5.json
+EXP 4 执行: lfu M=0.7 scale=1.0
+Running lfu (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.7_1.0.json
+EXP 4 执行: lfu M=0.7 scale=2.0
+Running lfu (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\lfu_0.7_2.0.json
+EXP 4 执行: c2rd_sr M=0.3 scale=0.5
+Running c2rd_sr (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.3_0.5.json
+EXP 4 执行: c2rd_sr M=0.3 scale=1.0
+Running c2rd_sr (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.3_1.0.json
+EXP 4 执行: c2rd_sr M=0.3 scale=2.0
+Running c2rd_sr (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.3_2.0.json
+EXP 4 执行: c2rd_sr M=0.5 scale=0.5
+Running c2rd_sr (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.5_0.5.json
+EXP 4 执行: c2rd_sr M=0.5 scale=1.0
+Running c2rd_sr (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.5_1.0.json
+EXP 4 执行: c2rd_sr M=0.5 scale=2.0
+Running c2rd_sr (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.5_2.0.json
+EXP 4 执行: c2rd_sr M=0.7 scale=0.5
+Running c2rd_sr (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.7_0.5.json
+EXP 4 执行: c2rd_sr M=0.7 scale=1.0
+Running c2rd_sr (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.7_1.0.json
+EXP 4 执行: c2rd_sr M=0.7 scale=2.0
+Running c2rd_sr (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\c2rd_sr_0.7_2.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.3 scale=0.5
+Running iat_adaptive_ttl (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.3_0.5.json
+EXP 4 执行: iat_adaptive_ttl M=0.3 scale=1.0
+Running iat_adaptive_ttl (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.3_1.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.3 scale=2.0
+Running iat_adaptive_ttl (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.3_2.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.5 scale=0.5
+Running iat_adaptive_ttl (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.5_0.5.json
+EXP 4 执行: iat_adaptive_ttl M=0.5 scale=1.0
+Running iat_adaptive_ttl (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.5_1.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.5 scale=2.0
+Running iat_adaptive_ttl (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.5_2.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.7 scale=0.5
+Running iat_adaptive_ttl (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.7_0.5.json
+EXP 4 执行: iat_adaptive_ttl M=0.7 scale=1.0
+Running iat_adaptive_ttl (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.7_1.0.json
+EXP 4 执行: iat_adaptive_ttl M=0.7 scale=2.0
+Running iat_adaptive_ttl (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\iat_adaptive_ttl_0.7_2.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.3 scale=0.5
+Running adaptive_ttl_lru (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.3_0.5.json
+EXP 4 执行: adaptive_ttl_lru M=0.3 scale=1.0
+Running adaptive_ttl_lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.3_1.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.3 scale=2.0
+Running adaptive_ttl_lru (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.3_2.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.5 scale=0.5
+Running adaptive_ttl_lru (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.5_0.5.json
+EXP 4 执行: adaptive_ttl_lru M=0.5 scale=1.0
+Running adaptive_ttl_lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.5_1.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.5 scale=2.0
+Running adaptive_ttl_lru (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.5_2.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.7 scale=0.5
+Running adaptive_ttl_lru (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.7_0.5.json
+EXP 4 执行: adaptive_ttl_lru M=0.7 scale=1.0
+Running adaptive_ttl_lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.7_1.0.json
+EXP 4 执行: adaptive_ttl_lru M=0.7 scale=2.0
+Running adaptive_ttl_lru (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\adaptive_ttl_lru_0.7_2.0.json
+EXP 4 执行: fixed_ttl_lru M=0.3 scale=0.5
+Running fixed_ttl_lru (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.3_0.5.json
+EXP 4 执行: fixed_ttl_lru M=0.3 scale=1.0
+Running fixed_ttl_lru (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.3_1.0.json
+EXP 4 执行: fixed_ttl_lru M=0.3 scale=2.0
+Running fixed_ttl_lru (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.3_2.0.json
+EXP 4 执行: fixed_ttl_lru M=0.5 scale=0.5
+Running fixed_ttl_lru (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.5_0.5.json
+EXP 4 执行: fixed_ttl_lru M=0.5 scale=1.0
+Running fixed_ttl_lru (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.5_1.0.json
+EXP 4 执行: fixed_ttl_lru M=0.5 scale=2.0
+Running fixed_ttl_lru (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.5_2.0.json
+EXP 4 执行: fixed_ttl_lru M=0.7 scale=0.5
+Running fixed_ttl_lru (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.7_0.5.json
+EXP 4 执行: fixed_ttl_lru M=0.7 scale=1.0
+Running fixed_ttl_lru (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.7_1.0.json
+EXP 4 执行: fixed_ttl_lru M=0.7 scale=2.0
+Running fixed_ttl_lru (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\fixed_ttl_lru_0.7_2.0.json
+EXP 4 执行: ttlmin_extnd M=0.3 scale=0.5
+Running ttlmin_extnd (M=2934MB, ratio=0.3, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.3_0.5.json
+EXP 4 执行: ttlmin_extnd M=0.3 scale=1.0
+Running ttlmin_extnd (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.3_1.0.json
+EXP 4 执行: ttlmin_extnd M=0.3 scale=2.0
+Running ttlmin_extnd (M=2934MB, ratio=0.3, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.3_2.0.json
+EXP 4 执行: ttlmin_extnd M=0.5 scale=0.5
+Running ttlmin_extnd (M=4889MB, ratio=0.5, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.5_0.5.json
+EXP 4 执行: ttlmin_extnd M=0.5 scale=1.0
+Running ttlmin_extnd (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.5_1.0.json
+EXP 4 执行: ttlmin_extnd M=0.5 scale=2.0
+Running ttlmin_extnd (M=4889MB, ratio=0.5, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.5_2.0.json
+EXP 4 执行: ttlmin_extnd M=0.7 scale=0.5
+Running ttlmin_extnd (M=6845MB, ratio=0.7, scale=0.5)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.7_0.5.json
+EXP 4 执行: ttlmin_extnd M=0.7 scale=1.0
+Running ttlmin_extnd (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.7_1.0.json
+EXP 4 执行: ttlmin_extnd M=0.7 scale=2.0
+Running ttlmin_extnd (M=6845MB, ratio=0.7, scale=2.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity\ttlmin_extnd_0.7_2.0.json
+
+EXP 4 摘要
+实验名称: sensitivity
+状态: 部分成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\sensitivity
+新生成文件数: 81
+关键指标摘要: total_cold_start_cost=2032850.0000, total_cold_starts=5481, avg_memory_utilization=0.8863
+
+========================================================================
+EXP 5 - ei_ablation
+available policies: dtlm, ei_dtlm
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation
+========================================================================
+EXP 5 执行: dtlm M=0.1
+Running dtlm (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_0.1.json
+EXP 5 执行: dtlm M=0.2
+Running dtlm (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_0.2.json
+EXP 5 执行: dtlm M=0.3
+Running dtlm (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_0.3.json
+EXP 5 执行: dtlm M=0.5
+Running dtlm (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_0.5.json
+EXP 5 执行: dtlm M=0.7
+Running dtlm (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_0.7.json
+EXP 5 执行: dtlm M=1.0
+Running dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\dtlm_1.0.json
+EXP 5 执行: ei_dtlm M=0.1
+Running ei_dtlm (M=978MB, ratio=0.1, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_0.1.json
+EXP 5 执行: ei_dtlm M=0.2
+Running ei_dtlm (M=1956MB, ratio=0.2, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_0.2.json
+EXP 5 执行: ei_dtlm M=0.3
+Running ei_dtlm (M=2934MB, ratio=0.3, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_0.3.json
+EXP 5 执行: ei_dtlm M=0.5
+Running ei_dtlm (M=4889MB, ratio=0.5, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_0.5.json
+EXP 5 执行: ei_dtlm M=0.7
+Running ei_dtlm (M=6845MB, ratio=0.7, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_0.7.json
+EXP 5 执行: ei_dtlm M=1.0
+Running ei_dtlm (M=9779MB, ratio=1.0, scale=1.0)...
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation\ei_dtlm_1.0.json
+
+EXP 5 摘要
+实验名称: ei_ablation
+状态: 成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\ei_ablation
+新生成文件数: 12
+关键指标摘要: total_cold_start_cost=1182160.0000, total_cold_starts=3310, avg_memory_utilization=0.8272
+
+========================================================================
+EXP 6 - deletion_timing
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing
+========================================================================
+EXP 6 执行: dtlm M=0.3
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing\dtlm_0.3.json
+EXP 6 执行: dtlm M=0.5
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing\dtlm_0.5.json
+EXP 6 执行: dtlm M=0.7
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing\dtlm_0.7.json
+EXP 6 执行: dtlm M=1.0
+Progress: 100000 / 1796481
+Progress: 200000 / 1796481
+Progress: 300000 / 1796481
+Progress: 400000 / 1796481
+Progress: 500000 / 1796481
+Progress: 600000 / 1796481
+Progress: 700000 / 1796481
+Progress: 800000 / 1796481
+Progress: 900000 / 1796481
+Progress: 1000000 / 1796481
+Progress: 1100000 / 1796481
+Progress: 1200000 / 1796481
+Progress: 1300000 / 1796481
+Progress: 1400000 / 1796481
+Progress: 1500000 / 1796481
+Progress: 1600000 / 1796481
+Progress: 1700000 / 1796481
+Simulation done: 1796481 requests processed
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing\dtlm_1.0.json
+
+EXP 6 摘要
+实验名称: deletion_timing
+状态: 成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\deletion_timing
+新生成文件数: 3
+关键指标摘要: total_cold_start_cost=1181620.0000, total_cold_starts=3309, avg_memory_utilization=0.8272, expiry_count=2828, expiry_mean_pressure=0.8313
+
+========================================================================
+EXP 7 - divergence
+output: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence
+========================================================================
+EXP 7 执行: dtlm_vs_gdsf M=0.3
+Pair progress: 100000 / 1796481
+Pair progress: 200000 / 1796481
+Pair progress: 300000 / 1796481
+Pair progress: 400000 / 1796481
+Pair progress: 500000 / 1796481
+Pair progress: 600000 / 1796481
+Pair progress: 700000 / 1796481
+Pair progress: 800000 / 1796481
+Pair progress: 900000 / 1796481
+Pair progress: 1000000 / 1796481
+Pair progress: 1100000 / 1796481
+Pair progress: 1200000 / 1796481
+Pair progress: 1300000 / 1796481
+Pair progress: 1400000 / 1796481
+Pair progress: 1500000 / 1796481
+Pair progress: 1600000 / 1796481
+Pair progress: 1700000 / 1796481
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence\dtlm_vs_gdsf_0.3.json
+EXP 7 执行: dtlm_vs_gdsf M=0.5
+Pair progress: 100000 / 1796481
+Pair progress: 200000 / 1796481
+Pair progress: 300000 / 1796481
+Pair progress: 400000 / 1796481
+Pair progress: 500000 / 1796481
+Pair progress: 600000 / 1796481
+Pair progress: 700000 / 1796481
+Pair progress: 800000 / 1796481
+Pair progress: 900000 / 1796481
+Pair progress: 1000000 / 1796481
+Pair progress: 1100000 / 1796481
+Pair progress: 1200000 / 1796481
+Pair progress: 1300000 / 1796481
+Pair progress: 1400000 / 1796481
+Pair progress: 1500000 / 1796481
+Pair progress: 1600000 / 1796481
+Pair progress: 1700000 / 1796481
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence\dtlm_vs_gdsf_0.5.json
+EXP 7 执行: dtlm_vs_gdsf M=0.7
+Pair progress: 100000 / 1796481
+Pair progress: 200000 / 1796481
+Pair progress: 300000 / 1796481
+Pair progress: 400000 / 1796481
+Pair progress: 500000 / 1796481
+Pair progress: 600000 / 1796481
+Pair progress: 700000 / 1796481
+Pair progress: 800000 / 1796481
+Pair progress: 900000 / 1796481
+Pair progress: 1000000 / 1796481
+Pair progress: 1100000 / 1796481
+Pair progress: 1200000 / 1796481
+Pair progress: 1300000 / 1796481
+Pair progress: 1400000 / 1796481
+Pair progress: 1500000 / 1796481
+Pair progress: 1600000 / 1796481
+Pair progress: 1700000 / 1796481
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence\dtlm_vs_gdsf_0.7.json
+EXP 7 执行: dtlm_vs_gdsf M=1.0
+Pair progress: 100000 / 1796481
+Pair progress: 200000 / 1796481
+Pair progress: 300000 / 1796481
+Pair progress: 400000 / 1796481
+Pair progress: 500000 / 1796481
+Pair progress: 600000 / 1796481
+Pair progress: 700000 / 1796481
+Pair progress: 800000 / 1796481
+Pair progress: 900000 / 1796481
+Pair progress: 1000000 / 1796481
+Pair progress: 1100000 / 1796481
+Pair progress: 1200000 / 1796481
+Pair progress: 1300000 / 1796481
+Pair progress: 1400000 / 1796481
+Pair progress: 1500000 / 1796481
+Pair progress: 1600000 / 1796481
+Pair progress: 1700000 / 1796481
+SAVED: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence\dtlm_vs_gdsf_1.0.json
+
+EXP 7 摘要
+实验名称: divergence
+状态: 成功
+输出目录: C:\Users\wl\Desktop\DTLM\code\paper_b_sim\results\divergence
+新生成文件数: 3
+关键指标摘要: mean_jaccard=0.6239, total_delta_cost=-68230.0000
+
+========================================================================
+FINAL SUMMARY
+========================================================================
+baseline 实际成功运行 policies: ['adaptive_ttl_lru', 'c2rd_sr', 'dtlm', 'fixed_ttl_lru', 'gdsf', 'iat_adaptive_ttl', 'lfu', 'lru', 'ttlmin_extnd']
+ei_ablation 实际成功运行 policies: ['dtlm', 'ei_dtlm']
+失败/跳过项:
+- EXP 3 baseline | skip | policy fifo | reason=policy not found in POLICY_MAP
+- EXP 3 baseline | skip | policy s_cache | reason=policy not found in POLICY_MAP
+- EXP 3 baseline | skip | policy dtlm_vanilla_gdsf | reason=policy not found in POLICY_MAP
+- EXP 4 sensitivity | skip | policy fifo | reason=policy not found in POLICY_MAP
+- EXP 4 sensitivity | skip | policy s_cache | reason=policy not found in POLICY_MAP
+- EXP 4 sensitivity | skip | policy dtlm_vanilla_gdsf | reason=policy not found in POLICY_MAP
+results/ 子目录文件统计:
+- naive_overlay: actual=1, expected=1, status=OK
+- gate_ablation: actual=2, expected=2, status=OK
+- baseline: actual=55, expected=54, status=MISMATCH
+  extra_files=['ei_dtlm_1.0.json']
+- sensitivity: actual=81, expected=81, status=OK
+- ei_ablation: actual=12, expected=12, status=OK
+- deletion_timing: actual=4, expected=4, status=OK
+- divergence: actual=4, expected=4, status=OK
+naive total_cold_start_cost: 4880670.0000
+gdsf total_cold_start_cost: 1249850.0000
+naive / gdsf: 3.905005
+dtlm total_cold_start_cost: 1181620.0000
+dtlm equals 1181620: True
+FULL_RUN_COMPLETE_WITH_ERRORS

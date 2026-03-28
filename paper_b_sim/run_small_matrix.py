@@ -7,7 +7,6 @@ p_deactivate=0.95). Tau values are loaded from results/dtlm_v3/selected_params.j
 if available, otherwise hardcoded fallback values are used.
 """
 import json
-import os
 import time
 from pathlib import Path
 

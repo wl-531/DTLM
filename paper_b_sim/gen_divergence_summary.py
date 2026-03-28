@@ -6,7 +6,6 @@ from pathlib import Path
 
 from data_loader import (
     load_memory, forced_tail_sample, load_invocations_for_apps, load_triggers,
-    compute_global_request_counts, build_hotness_labels,
 )
 from cold_start import calibrate_cold_start
 from config import SEED

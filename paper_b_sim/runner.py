@@ -17,6 +17,7 @@ from policies.adaptive_ttl_only import AdaptiveTTLOnly
 from policies.adaptive_ttl_lru import AdaptiveTTL_LRU
 from policies.ttlmin_extnd import TTLminExtnd
 from policies.dtlm import DTLM
+from policies.dtlm_ei import DTLMExpInf
 from policies.c2rd import C2RD_SR
 
 DAY_MS = 24 * 60 * 60 * 1000
@@ -32,6 +33,7 @@ POLICY_MAP = {
     "adaptive_ttl_lru": AdaptiveTTL_LRU,
     "ttlmin_extnd": TTLminExtnd,
     "dtlm": DTLM,
+    "ei_dtlm": DTLMExpInf,
     "c2rd_sr": C2RD_SR,
 }
 

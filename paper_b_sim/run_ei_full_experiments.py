@@ -52,11 +52,6 @@ if _PARAMS_PATH.exists():
 else:
     print(f"[ei_full] selected_params.json not found, using fallback tau")
 
-# --- 注册 DTLMExpInf 到 runner.POLICY_MAP ---
-from policies.dtlm_ei import DTLMExpInf
-import runner
-runner.POLICY_MAP["ei_dtlm"] = DTLMExpInf
-
 EI_POLICY = "ei_dtlm"
 
 

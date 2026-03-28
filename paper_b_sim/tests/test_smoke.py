@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from runner import prepare_data, run_single, POLICY_MAP, UNCONSTRAINED_POLICIES
+from runner import prepare_data, run_single, POLICY_MAP
 
 
 def main():

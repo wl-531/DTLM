@@ -1,0 +1,25 @@
+{
+  "gdsf_cost": 1249850.0,
+  "naive": {
+    "expiry_deletion_count": 13764,
+    "expiry_cold_start_count": 13836,
+    "mean_pressure": 0.4021,
+    "pct_le_085": 95.55,
+    "pct_le_085_actual": 99.99,
+    "total_cost": 4880670.0,
+    "cost_over_gdsf": 3.905,
+    "expiry_cost_share_pct": 79.2,
+    "expiry_starts_share_pct": 85.03
+  },
+  "gated": {
+    "expiry_deletion_count": 2828,
+    "expiry_cold_start_count": 2771,
+    "mean_pressure": 0.8313,
+    "pct_le_085": 49.47,
+    "pct_le_085_actual": 49.47,
+    "total_cost": 1181620.0,
+    "cost_over_gdsf": 0.9454,
+    "expiry_cost_share_pct": 81.4,
+    "expiry_starts_share_pct": 83.74
+  }
+}
