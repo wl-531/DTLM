@@ -8,6 +8,7 @@ import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter
 
 from engine import simulate
 from metrics import summary
@@ -135,32 +136,42 @@ def plot_histogram(stats):
     plt.rcParams.update({
         "font.family": "serif",
         "font.size": 8,
-        "axes.labelsize": 9,
-        "axes.titlesize": 9,
+        "axes.labelsize": 8,
         "xtick.labelsize": 7,
         "ytick.labelsize": 7,
+        "axes.linewidth": 0.6,
+        "axes.labelcolor": "#333333",
+        "xtick.color": "#333333",
+        "ytick.color": "#333333",
+        "xtick.major.width": 0.6,
+        "ytick.major.width": 0.6,
     })
 
     values = np.array(stats["pressure_samples"], dtype=float)
     bins = np.linspace(0, 1, 21)
     fig, ax = plt.subplots(1, 1, figsize=(3.45, 2.8))
 
-    ax.hist(values, bins=bins, color="#d95f02", edgecolor="white", linewidth=0.4)
+    ax.hist(values, bins=bins, color="#5B7FA5", edgecolor="white", linewidth=0.5)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.set_xlim(0.0, 1.0)
+    ax.set_ylim(0, 3200)
+    ax.margins(x=0)
+    ax.set_xticks(np.linspace(0.0, 1.0, 6))
+    ax.xaxis.set_major_formatter(FormatStrFormatter("%.1f"))
     ax.set_xlabel(r"Normalized memory pressure $p(t)$ at deletion")
-    ax.set_ylabel("Number of expiry deletions")
-    ax.axvline(0.85, color="gray", linewidth=0.8, linestyle=":", alpha=0.7)
-
+    ax.set_ylabel("Expiry deletions")
     mean_pressure = stats["mean_pressure"]
-    ax.axvline(mean_pressure, color="#c44e52", linewidth=1.2, linestyle="--")
+    ax.axvline(mean_pressure, color="#B22222", linewidth=1.5, linestyle="--")
 
-    annotation = f"mean = {mean_pressure:.2f}\n{stats['pct_le_085']:.1f}% $\\leq$ 0.85"
+    annotation = f"mean = {mean_pressure:.2f}\n$n$ = {stats['expiry_deletion_count']:,}"
     ax.annotate(
         annotation,
         xy=(0.97, 0.95),
         xycoords="axes fraction",
         ha="right",
         va="top",
-        fontsize=7,
+        fontsize=7.5,
         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.85),
     )
 

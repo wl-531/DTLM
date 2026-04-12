@@ -1,0 +1,805 @@
+{
+  "m_ratios": [
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    1.0
+  ],
+  "policies": {
+    "adaptive_ttl_lru": {
+      "display_name": "Adaptive-TTL+LRU",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 67476720.0,
+          "cold_start_rate": 0.15046710145292475,
+          "avg_mem_util": 0.8138217869302675,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 61329740.0,
+          "cold_start_rate": 0.13718499679645904,
+          "avg_mem_util": 0.911119056703254,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 30931750.0,
+          "cold_start_rate": 0.07024288156411139,
+          "avg_mem_util": 0.9137044814416921,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 10424980.0,
+          "cold_start_rate": 0.02370550365539412,
+          "avg_mem_util": 0.9156645836354045,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 5070940.0,
+          "cold_start_rate": 0.010743753095124183,
+          "avg_mem_util": 0.914024885717679,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 3844180.0,
+          "cold_start_rate": 0.008438322743462118,
+          "avg_mem_util": 0.9315906771330494,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\adaptive_ttl_lru_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "c2rd_sr": {
+      "display_name": "C2RD-SR",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 224458530.0,
+          "cold_start_rate": 0.4996285850980787,
+          "avg_mem_util": 0.8760449377689601,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 181458710.0,
+          "cold_start_rate": 0.4093446870182448,
+          "avg_mem_util": 0.9359563822552424,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 22047680.0,
+          "cold_start_rate": 0.054842802664674596,
+          "avg_mem_util": 0.9622248454819057,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 5875740.0,
+          "cold_start_rate": 0.013284203045742089,
+          "avg_mem_util": 0.9148200210498143,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 2692950.0,
+          "cold_start_rate": 0.005491484736316403,
+          "avg_mem_util": 0.7557637182280189,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 2319680.0,
+          "cold_start_rate": 0.004585680032007431,
+          "avg_mem_util": 0.5399881647221423,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\c2rd_sr_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "dtlm": {
+      "display_name": "DTLM",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 57691770.0,
+          "cold_start_rate": 0.129395775802494,
+          "avg_mem_util": 0.9219148168178734,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_0.1.json",
+          "source": "ei_ablation/ei_dtlm"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 36466895.0,
+          "cold_start_rate": 0.10385348206716524,
+          "avg_mem_util": 0.9530950848432269,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_0.2.json",
+          "source": "ei_ablation/ei_dtlm"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 11754120.0,
+          "cold_start_rate": 0.031181365184084698,
+          "avg_mem_util": 0.9608308754627883,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_0.3.json",
+          "source": "ei_ablation/ei_dtlm"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 3946730.0,
+          "cold_start_rate": 0.00829493280957537,
+          "avg_mem_util": 0.9187484258126002,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_0.5.json",
+          "source": "ei_ablation/ei_dtlm"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 1950870.0,
+          "cold_start_rate": 0.003930982577773301,
+          "avg_mem_util": 0.8858578282665361,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_0.7.json",
+          "source": "ei_ablation/ei_dtlm"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 1181620.0,
+          "cold_start_rate": 0.002315222834951891,
+          "avg_mem_util": 0.8271772452627396,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\ei_ablation\\ei_dtlm_1.0.json",
+          "source": "ei_ablation/ei_dtlm"
+        }
+      ]
+    },
+    "fixed_ttl_lru": {
+      "display_name": "Fixed-TTL+LRU",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 67476380.0,
+          "cold_start_rate": 0.15046710145292475,
+          "avg_mem_util": 0.9175227687251553,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 62533190.0,
+          "cold_start_rate": 0.13984435547273913,
+          "avg_mem_util": 0.9648340425758676,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 31002450.0,
+          "cold_start_rate": 0.07033381176608836,
+          "avg_mem_util": 0.9582235672907138,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 8541800.0,
+          "cold_start_rate": 0.019696880674394335,
+          "avg_mem_util": 0.9449336908863776,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 2816930.0,
+          "cold_start_rate": 0.005730701113825028,
+          "avg_mem_util": 0.8323024654946394,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 2359540.0,
+          "cold_start_rate": 0.004665418824510306,
+          "avg_mem_util": 0.5992145989209602,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\fixed_ttl_lru_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "gdsf": {
+      "display_name": "GDSF",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 57691770.0,
+          "cold_start_rate": 0.129395775802494,
+          "avg_mem_util": 0.9219148168178734,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 51196200.0,
+          "cold_start_rate": 0.11300385823841619,
+          "avg_mem_util": 0.956189285651865,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 16284490.0,
+          "cold_start_rate": 0.040215630482041985,
+          "avg_mem_util": 0.9744620390668237,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 7666250.0,
+          "cold_start_rate": 0.0172865308589127,
+          "avg_mem_util": 0.9755682859271357,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 2907560.0,
+          "cold_start_rate": 0.005376772789207005,
+          "avg_mem_util": 0.9620015312693257,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 1249850.0,
+          "cold_start_rate": 0.00232851263370237,
+          "avg_mem_util": 0.9684476461452695,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\gdsf_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "iat_adaptive_ttl": {
+      "display_name": "IAT-Adaptive TTL (Adm.)",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 416361880.0,
+          "cold_start_rate": 0.945572678412051,
+          "avg_mem_util": 0.9695557000548679,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 406713820.0,
+          "cold_start_rate": 0.9284183460775509,
+          "avg_mem_util": 0.9993578164019628,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 395638580.0,
+          "cold_start_rate": 0.9015792477694122,
+          "avg_mem_util": 0.9911452234638776,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 335708960.0,
+          "cold_start_rate": 0.7609556904120397,
+          "avg_mem_util": 0.9849449643955713,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 377428130.0,
+          "cold_start_rate": 0.8624960480335294,
+          "avg_mem_util": 0.9940420692412565,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 278378130.0,
+          "cold_start_rate": 0.6296664680191485,
+          "avg_mem_util": 0.9896116634275315,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\iat_adaptive_ttl_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "lfu": {
+      "display_name": "LFU",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 57449000.0,
+          "cold_start_rate": 0.12750023082282042,
+          "avg_mem_util": 0.9294681310640095,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 51050960.0,
+          "cold_start_rate": 0.11268350414222043,
+          "avg_mem_util": 0.95575013550753,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 18573320.0,
+          "cold_start_rate": 0.041642535189988165,
+          "avg_mem_util": 0.9746184125943298,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 9024280.0,
+          "cold_start_rate": 0.02029981785981081,
+          "avg_mem_util": 0.9730712567684294,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 3981670.0,
+          "cold_start_rate": 0.007629043945867152,
+          "avg_mem_util": 0.9609476876555013,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 2337010.0,
+          "cold_start_rate": 0.004817901778594751,
+          "avg_mem_util": 0.969714230328771,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lfu_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "lru": {
+      "display_name": "LRU",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 67476380.0,
+          "cold_start_rate": 0.15046710145292475,
+          "avg_mem_util": 0.9175227687251553,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 62533190.0,
+          "cold_start_rate": 0.13984435547273913,
+          "avg_mem_util": 0.9648340425758676,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 31002450.0,
+          "cold_start_rate": 0.07033381176608836,
+          "avg_mem_util": 0.9582235672907138,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 8468710.0,
+          "cold_start_rate": 0.01951362134425615,
+          "avg_mem_util": 0.9477844265378735,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 2359160.0,
+          "cold_start_rate": 0.004769638825237748,
+          "avg_mem_util": 0.9457403662161631,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 881700.0,
+          "cold_start_rate": 0.0018857524963837758,
+          "avg_mem_util": 0.9753730469822818,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\lru_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    },
+    "ttlmin_extnd": {
+      "display_name": "TTLmin,extnd",
+      "points": [
+        {
+          "M_ratio": 0.1,
+          "total_cost": 267367050.0,
+          "cold_start_rate": 0.5922256076235881,
+          "avg_mem_util": 0.9199920565223352,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_0.1.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.2,
+          "total_cost": 267945430.0,
+          "cold_start_rate": 0.5930257934009854,
+          "avg_mem_util": 0.9584938088462837,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_0.2.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.3,
+          "total_cost": 268307220.0,
+          "cold_start_rate": 0.5937889076344998,
+          "avg_mem_util": 0.9718795957330975,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_0.3.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.5,
+          "total_cost": 268660540.0,
+          "cold_start_rate": 0.5946338590497934,
+          "avg_mem_util": 0.9833977773590692,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_0.5.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 0.7,
+          "total_cost": 267760690.0,
+          "cold_start_rate": 0.5925914268207724,
+          "avg_mem_util": 0.987848258750737,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_0.7.json",
+          "source": "baseline"
+        },
+        {
+          "M_ratio": 1.0,
+          "total_cost": 266651390.0,
+          "cold_start_rate": 0.5904769498932619,
+          "avg_mem_util": 0.9917552285545529,
+          "path": "C:\\Users\\wl\\Desktop\\DTLM\\code\\paper_b_sim\\results\\baseline\\ttlmin_extnd_1.0.json",
+          "source": "baseline"
+        }
+      ]
+    }
+  },
+  "dtlm_vs_gdsf": {
+    "0.1": {
+      "dtlm_cost": 57691770.0,
+      "gdsf_cost": 57691770.0,
+      "ratio": 1.0
+    },
+    "0.2": {
+      "dtlm_cost": 36466895.0,
+      "gdsf_cost": 51196200.0,
+      "ratio": 0.7123069583919412
+    },
+    "0.3": {
+      "dtlm_cost": 11754120.0,
+      "gdsf_cost": 16284490.0,
+      "ratio": 0.7217984720430299
+    },
+    "0.5": {
+      "dtlm_cost": 3946730.0,
+      "gdsf_cost": 7666250.0,
+      "ratio": 0.514818848850481
+    },
+    "0.7": {
+      "dtlm_cost": 1950870.0,
+      "gdsf_cost": 2907560.0,
+      "ratio": 0.6709646576510889
+    },
+    "1.0": {
+      "dtlm_cost": 1181620.0,
+      "gdsf_cost": 1249850.0,
+      "ratio": 0.945409449133896
+    }
+  },
+  "rankings": {
+    "0.1": [
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 57449000.0
+      },
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 57691770.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 57691770.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 67476380.0
+      },
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 67476380.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 67476720.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 224458530.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 267367050.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 416361880.0
+      }
+    ],
+    "0.2": [
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 36466895.0
+      },
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 51050960.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 51196200.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 61329740.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 62533190.0
+      },
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 62533190.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 181458710.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 267945430.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 406713820.0
+      }
+    ],
+    "0.3": [
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 11754120.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 16284490.0
+      },
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 18573320.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 22047680.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 30931750.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 31002450.0
+      },
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 31002450.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 268307220.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 395638580.0
+      }
+    ],
+    "0.5": [
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 3946730.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 5875740.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 7666250.0
+      },
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 8468710.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 8541800.0
+      },
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 9024280.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 10424980.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 268660540.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 335708960.0
+      }
+    ],
+    "0.7": [
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 1950870.0
+      },
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 2359160.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 2692950.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 2816930.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 2907560.0
+      },
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 3981670.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 5070940.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 267760690.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 377428130.0
+      }
+    ],
+    "1.0": [
+      {
+        "policy": "lru",
+        "display_name": "LRU",
+        "total_cost": 881700.0
+      },
+      {
+        "policy": "dtlm",
+        "display_name": "DTLM",
+        "total_cost": 1181620.0
+      },
+      {
+        "policy": "gdsf",
+        "display_name": "GDSF",
+        "total_cost": 1249850.0
+      },
+      {
+        "policy": "c2rd_sr",
+        "display_name": "C2RD-SR",
+        "total_cost": 2319680.0
+      },
+      {
+        "policy": "lfu",
+        "display_name": "LFU",
+        "total_cost": 2337010.0
+      },
+      {
+        "policy": "fixed_ttl_lru",
+        "display_name": "Fixed-TTL+LRU",
+        "total_cost": 2359540.0
+      },
+      {
+        "policy": "adaptive_ttl_lru",
+        "display_name": "Adaptive-TTL+LRU",
+        "total_cost": 3844180.0
+      },
+      {
+        "policy": "ttlmin_extnd",
+        "display_name": "TTLmin,extnd",
+        "total_cost": 266651390.0
+      },
+      {
+        "policy": "iat_adaptive_ttl",
+        "display_name": "IAT-Adaptive TTL (Adm.)",
+        "total_cost": 278378130.0
+      }
+    ]
+  }
+}

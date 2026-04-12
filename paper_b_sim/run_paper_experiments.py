@@ -1,5 +1,6 @@
 """Paper-frozen experiment entry for `paper_b_sim`."""
 
+import argparse
 import contextlib
 import json
 import sys
@@ -127,6 +128,10 @@ class RunLogger:
 
 def fmt_ratio(value):
     return f"{value:.1f}"
+
+
+def fmt_p(value):
+    return f"{value:.2f}"
 
 
 def fmt_metric(value):
@@ -606,39 +611,56 @@ def exp5_ei_ablation(data, logger):
     return tracker
 
 
-def exp6_deletion_timing(data, logger):
+def exp6_deletion_timing(data, logger, p_deactivate_values=None):
     tracker = new_tracker("EXP 6", "deletion_timing", RESULT_SUBDIRS["deletion_timing"])
     logger.log("\n" + "=" * 72)
     logger.log("EXP 6 - deletion_timing")
     logger.log(f"output: {RESULT_SUBDIRS['deletion_timing']}")
     logger.log("=" * 72)
 
+    p_values = list(p_deactivate_values) if p_deactivate_values is not None else [DTLM_VFINAL_KWARGS["p_deactivate"]]
+
     if data is None:
-        for m_ratio in M_RATIOS_DELETION:
-            skip_task(logger, tracker, f"dtlm M={fmt_ratio(m_ratio)}", "shared data preparation failed", policy_name="dtlm")
+        for p_deactivate in p_values:
+            for m_ratio in M_RATIOS_DELETION:
+                skip_task(
+                    logger,
+                    tracker,
+                    f"dtlm p={fmt_p(p_deactivate)} M={fmt_ratio(m_ratio)}",
+                    "shared data preparation failed",
+                    policy_name="dtlm",
+                )
     else:
-        for m_ratio in M_RATIOS_DELETION:
-            output_path = RESULT_SUBDIRS["deletion_timing"] / f"dtlm_{fmt_ratio(m_ratio)}.json"
-            payload = run_captured_task(
-                logger,
-                tracker,
-                f"dtlm M={fmt_ratio(m_ratio)}",
-                lambda m_ratio=m_ratio, output_path=output_path: run_dtlm_with_deletion_capture(
-                    data,
-                    m_ratio,
-                    output_path,
-                    dict(DTLM_VFINAL_KWARGS),
-                ),
-                {
-                    "exp": tracker["name"],
-                    "policy": "dtlm",
-                    "M_ratio": m_ratio,
-                    "output_path": str(output_path),
-                },
-                policy_name="dtlm",
-            )
-            if payload and m_ratio == 1.0:
-                tracker["metric_summary"] = summarize_metrics(payload)
+        for p_deactivate in p_values:
+            for m_ratio in M_RATIOS_DELETION:
+                if len(p_values) == 1 and p_deactivate == DTLM_VFINAL_KWARGS["p_deactivate"]:
+                    output_name = f"dtlm_{fmt_ratio(m_ratio)}.json"
+                else:
+                    output_name = f"dtlm_p{fmt_p(p_deactivate)}_{fmt_ratio(m_ratio)}.json"
+                output_path = RESULT_SUBDIRS["deletion_timing"] / output_name
+                policy_kwargs = dict(DTLM_VFINAL_KWARGS)
+                policy_kwargs["p_deactivate"] = p_deactivate
+                payload = run_captured_task(
+                    logger,
+                    tracker,
+                    f"dtlm p={fmt_p(p_deactivate)} M={fmt_ratio(m_ratio)}",
+                    lambda m_ratio=m_ratio, output_path=output_path, policy_kwargs=policy_kwargs: run_dtlm_with_deletion_capture(
+                        data,
+                        m_ratio,
+                        output_path,
+                        policy_kwargs,
+                    ),
+                    {
+                        "exp": tracker["name"],
+                        "policy": "dtlm",
+                        "M_ratio": m_ratio,
+                        "p_deactivate": p_deactivate,
+                        "output_path": str(output_path),
+                    },
+                    policy_name="dtlm",
+                )
+                if payload and p_deactivate == p_values[-1] and m_ratio == 1.0:
+                    tracker["metric_summary"] = summarize_metrics(payload)
 
     print_experiment_summary(logger, tracker)
     return tracker
@@ -841,7 +863,43 @@ def final_summary(trackers, logger):
     return final_state
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run paper_b_sim experiments.")
+    parser.add_argument(
+        "--only",
+        choices=[
+            "naive_overlay",
+            "gate_ablation",
+            "baseline",
+            "sensitivity",
+            "ei_ablation",
+            "deletion_timing",
+            "divergence",
+        ],
+        help="Run only the selected experiment entry.",
+    )
+    parser.add_argument(
+        "--p-deactivate-grid",
+        help="Comma-separated p_deactivate values for EXP 6 only, e.g. 0.85,0.90,0.95,0.99",
+    )
+    return parser.parse_args()
+
+
+def parse_p_deactivate_grid(raw_value):
+    if not raw_value:
+        return None
+    values = []
+    for chunk in raw_value.split(","):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        values.append(float(chunk))
+    return values or None
+
+
 def main():
+    args = parse_args()
+    p_deactivate_values = parse_p_deactivate_grid(args.p_deactivate_grid)
     ensure_output_dirs()
     logger = RunLogger(LOG_PATH)
     try:
@@ -849,6 +907,9 @@ def main():
         logger.log(f"Static runner policies: {', '.join(sorted(POLICY_MAP))}")
         logger.log(f"Planned-but-missing names: {', '.join(PLANNED_BUT_MISSING_NAMES)}")
         logger.log(f"seed={SEED}, days={DAYS}, working_set_days={WORKING_SET_DAYS}, warmup_days={WARMUP_DAYS}")
+        logger.log(f"only={args.only if args.only else 'all'}")
+        if p_deactivate_values is not None:
+            logger.log(f"p_deactivate_grid={', '.join(fmt_p(value) for value in p_deactivate_values)}")
 
         try:
             with logger.capture(echo=False):
@@ -865,16 +926,26 @@ def main():
                 },
             )
 
-        trackers = {
-            "naive_overlay": exp1_naive_overlay(data, logger),
-            "gate_ablation": exp2_gate_ablation(data, logger),
-            "baseline": exp3_baseline(data, logger),
-            "sensitivity": exp4_sensitivity(data, logger),
-            "ei_ablation": exp5_ei_ablation(data, logger),
-            "deletion_timing": exp6_deletion_timing(data, logger),
-            "divergence": exp7_divergence(data, logger),
+        runners = {
+            "naive_overlay": lambda: exp1_naive_overlay(data, logger),
+            "gate_ablation": lambda: exp2_gate_ablation(data, logger),
+            "baseline": lambda: exp3_baseline(data, logger),
+            "sensitivity": lambda: exp4_sensitivity(data, logger),
+            "ei_ablation": lambda: exp5_ei_ablation(data, logger),
+            "deletion_timing": lambda: exp6_deletion_timing(data, logger, p_deactivate_values=p_deactivate_values),
+            "divergence": lambda: exp7_divergence(data, logger),
         }
-        final_summary(trackers, logger)
+
+        if args.only:
+            tracker = runners[args.only]()
+            logger.log("\n" + "=" * 72)
+            logger.log("SINGLE EXPERIMENT COMPLETE")
+            logger.log("=" * 72)
+            logger.log(f"{tracker['exp_id']} {tracker['name']} -> {experiment_status(tracker)}")
+            logger.log(f"metric_summary: {tracker['metric_summary']}")
+        else:
+            trackers = {name: runner() for name, runner in runners.items()}
+            final_summary(trackers, logger)
     finally:
         logger.close()
 

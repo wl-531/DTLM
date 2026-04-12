@@ -25,6 +25,8 @@ BASELINE_DIR = RESULTS_DIR / "baseline"
 SENSITIVITY_DIR = RESULTS_DIR / "sensitivity"
 EI_BASELINE_DIR = RESULTS_DIR / "ei_baseline"
 EI_SENSITIVITY_DIR = RESULTS_DIR / "ei_sensitivity"
+EI_ABLATION_DIR = RESULTS_DIR / "ei_ablation"
+FIGURES_DIR = Path(__file__).resolve().parent / "figures"
 
 # 8 baselines（与 phase10.py 一致，不含 dtlm）
 BASELINES = [
@@ -74,7 +76,7 @@ def safe_load(path):
 def baseline_path(policy, m_ratio):
     """8 baselines 在 results/baseline/，EI-DTLM 在 results/ei_baseline/"""
     if policy == "ei_dtlm":
-        return EI_BASELINE_DIR / f"ei_dtlm_{fmt(m_ratio)}.json"
+        return EI_ABLATION_DIR / f"ei_dtlm_{fmt(m_ratio)}.json"
     return BASELINE_DIR / f"{policy}_{fmt(m_ratio)}.json"
 
 
@@ -164,26 +166,103 @@ def generate_summary_table_csv():
 # ─── 4.2 Cost vs M 图 ───
 
 def generate_cost_vs_M_plot(cost_df):
-    plt.figure(figsize=(9, 5))
-    for policy in ALL_POLICIES:
-        if policy not in cost_df.columns:
-            continue
-        subset = cost_df[[policy]].dropna()
-        if subset.empty:
-            continue
-        linestyle = "--" if policy == "iat_adaptive_ttl" else "-"
-        plt.plot(subset.index, subset[policy], marker="o",
-                 linestyle=linestyle, label=DISPLAY_NAMES[policy])
+    del cost_df
 
-    plt.yscale("log")
-    plt.xlabel("M / working_set_size")
-    plt.ylabel("Total cold-start cost")
-    plt.legend(loc="upper right", fontsize=8)
-    plt.tight_layout()
-    out = RESULTS_DIR / "ei_cost_vs_M_plot.png"
-    plt.savefig(out, dpi=200)
-    plt.close()
-    print(f"SAVED: {out}")
+    plot_order_main = [
+        "ei_dtlm",
+        "gdsf",
+        "lru",
+        "lfu",
+        "c2rd_sr",
+        "fixed_ttl_lru",
+        "adaptive_ttl_lru",
+    ]
+    plot_order_inset = plot_order_main + ["iat_adaptive_ttl", "ttlmin_extnd"]
+    display_names = {
+        "ei_dtlm": "DTLM",
+        "gdsf": "GDSF",
+        "lru": "LRU",
+        "lfu": "LFU",
+        "c2rd_sr": "C2RD-SR",
+        "fixed_ttl_lru": "Fixed-TTL+LRU",
+        "adaptive_ttl_lru": "Adaptive-TTL+LRU",
+        "iat_adaptive_ttl": "IAT-Adaptive TTL (Adm.)",
+        "ttlmin_extnd": "TTLmin,extnd",
+    }
+    style_map = {
+        "ei_dtlm": dict(color="black", linestyle="-", linewidth=2.5, marker="o", markersize=7, zorder=10),
+        "gdsf": dict(color="#D62728", linestyle="-", linewidth=1.2, marker="s", markersize=5, zorder=4),
+        "lru": dict(color="#1F77B4", linestyle="-", linewidth=1.2, marker="^", markersize=5, zorder=4),
+        "lfu": dict(color="#9467BD", linestyle="-", linewidth=1.2, marker="D", markersize=5, zorder=4),
+        "c2rd_sr": dict(color="#8C564B", linestyle="-", linewidth=1.2, marker="<", markersize=5, zorder=4),
+        "fixed_ttl_lru": dict(color="#E377C2", linestyle="-", linewidth=1.2, marker="v", markersize=5, zorder=4),
+        "adaptive_ttl_lru": dict(color="#FF7F0E", linestyle="-", linewidth=1.2, marker="P", markersize=5, zorder=4),
+        "iat_adaptive_ttl": dict(color="#2CA02C", linestyle="-", linewidth=1.2, marker="X", markersize=4.5, zorder=3),
+        "ttlmin_extnd": dict(color="#7F7F7F", linestyle="-", linewidth=1.2, marker=">", markersize=4.5, zorder=3),
+    }
+
+    def load_points(policy):
+        values = []
+        for m_ratio in BASELINE_M_RATIOS:
+            result = safe_load(baseline_path(policy, m_ratio))
+            if result is None:
+                raise FileNotFoundError(f"Missing result for {policy} M={fmt(m_ratio)}")
+            values.append(cost(result))
+        return values
+
+    series = {policy: load_points(policy) for policy in plot_order_inset}
+    x_positions = list(range(len(BASELINE_M_RATIOS)))
+    x_labels = [f"{m:.1f}" for m in BASELINE_M_RATIOS]
+
+    plt.rcParams.update(
+        {
+            "font.family": "serif",
+            "font.size": 10,
+            "axes.labelsize": 11,
+            "xtick.labelsize": 10,
+            "ytick.labelsize": 10,
+            "legend.fontsize": 10,
+        }
+    )
+
+    fig, ax = plt.subplots(figsize=(10, 4.5))
+    fig.subplots_adjust(left=0.10, right=0.78, bottom=0.18, top=0.93)
+
+    main_values = []
+    for policy in plot_order_main:
+        y_values = series[policy]
+        main_values.extend(y_values)
+        ax.plot(x_positions, y_values, label=display_names[policy], **style_map[policy])
+
+    ax.set_yscale("log")
+    ax.set_xlim(-0.2, len(x_positions) - 0.8)
+    ax.set_ylim(min(main_values) * 0.85, max(main_values) * 1.10)
+    ax.set_xticks(x_positions)
+    ax.set_xticklabels(x_labels)
+    ax.set_xlabel(r"Memory budget ratio $M$ / working set")
+    ax.set_ylabel("Total cold-start cost")
+    ax.grid(axis="y", which="major", linestyle=":", linewidth=0.6, alpha=0.55)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), frameon=False, borderaxespad=0.0)
+
+    inset = ax.inset_axes([0.62, 0.60, 0.30, 0.25])
+    for policy in plot_order_inset:
+        inset.plot(x_positions, series[policy], **style_map[policy])
+    inset.set_yscale("log")
+    inset.set_xlim(-0.2, len(x_positions) - 0.8)
+    inset.set_xticks(x_positions)
+    inset.set_xticklabels(x_labels, fontsize=8)
+    inset.tick_params(axis="y", labelsize=8)
+    inset.grid(axis="y", which="major", linestyle=":", linewidth=0.5, alpha=0.45)
+    inset.set_title("All 9 policies", fontsize=9, pad=2)
+
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    pdf_out = FIGURES_DIR / "fig3_cost_vs_m.pdf"
+    png_out = FIGURES_DIR / "fig3_cost_vs_m.png"
+    fig.savefig(pdf_out, dpi=300, bbox_inches="tight")
+    fig.savefig(png_out, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+    print(f"SAVED: {pdf_out}")
+    print(f"SAVED: {png_out}")
 
 
 # ─── 4.3 Sensitivity 图 ───
